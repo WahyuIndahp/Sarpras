@@ -63,14 +63,14 @@ File: Components
 }
 
 .btn-default {
-  background-color: @default;
-  border-color: @default;
+  background-color: fade(@default, 30%);
+  border-color: fade(@default, 50%);
 }
 .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active,
 .btn-default.focus, .btn-default:active, .btn-default:focus, .btn-default:hover,
 .open > .dropdown-toggle.btn-default  {
-  background-color: fade(@default, 70%) !important;
-  border: 1px solid fade(@default, 90%) !important;
+  background-color: fade(@default, 50%) !important;
+  border: 1px solid fade(@default, 70%) !important;
 }
 
 .btn-primary{
@@ -199,62 +199,62 @@ File: Components
 }
 
 .btn-trans.btn-default {
-  border: 1px solid fade(@default, 20%) !important;
-  background-color: fade(@default, 50%) !important;
-  color: @white !important;
+  border: 1px solid fade(@default, 10%) !important;
+  background-color: fade(@default, 30%) !important;
+  color: @dark !important;
 }
 
 .btn-trans.btn-custom {
-  border: 1px solid fade(@custom, 20%) !important;
-  background-color: fade(@custom, 30%) !important;
+  border: 1px solid fade(@custom, 10%) !important;
+  background-color: fade(@custom, 15%) !important;
   color: @custom !important;
 }
 
 .btn-trans.btn-primary {
-  border: 1px solid fade(@primary, 20%) !important;
-  background-color: fade(@primary, 30%) !important;
+  border: 1px solid fade(@primary, 10%) !important;
+  background-color: fade(@primary, 15%) !important;
   color: @primary !important;
 }
 
 .btn-trans.btn-success {
-  border: 1px solid fade(@success, 20%) !important;
-  background-color: fade(@success, 30%) !important;
+  border: 1px solid fade(@success, 10%) !important;
+  background-color: fade(@success, 15%) !important;
   color: @success !important;
 }
 
 .btn-trans.btn-info {
-  border: 1px solid fade(@info, 20%) !important;
-  background-color: fade(@info, 30%) !important;
+  border: 1px solid fade(@info, 10%) !important;
+  background-color: fade(@info, 15%) !important;
   color: @info !important;
 }
 
 .btn-trans.btn-warning {
-  border: 1px solid fade(@warning, 20%) !important;
-  background-color: fade(@warning, 30%) !important;
+  border: 1px solid fade(@warning, 10%) !important;
+  background-color: fade(@warning, 15%) !important;
   color: @warning !important;
 }
 
 .btn-trans.btn-danger {
-  border: 1px solid fade(@danger, 20%) !important;
-  background-color: fade(@danger, 30%) !important;
+  border: 1px solid fade(@danger, 10%) !important;
+  background-color: fade(@danger, 15%) !important;
   color: @danger !important;
 }
 
 .btn-trans.btn-inverse {
-  border: 1px solid fade(@inverse, 20%) !important;
-  background-color: fade(@inverse, 30%) !important;
-  color: @muted !important;
+  border: 1px solid fade(@inverse, 10%) !important;
+  background-color: fade(@inverse, 15%) !important;
+  color: @inverse !important;
 }
 
 .btn-trans.btn-purple {
-  border: 1px solid fade(@purple, 20%) !important;
-  background-color: fade(@purple, 30%) !important;
+  border: 1px solid fade(@purple, 10%) !important;
+  background-color: fade(@purple, 15%) !important;
   color: @purple !important;
 }
 
 .btn-trans.btn-pink {
-  border: 1px solid fade(@pink, 20%) !important;
-  background-color: fade(@pink, 30%) !important;
+  border: 1px solid fade(@pink, 10%) !important;
+  background-color: fade(@pink, 15%) !important;
   color: @pink !important;
 }
 
@@ -274,7 +274,6 @@ File: Components
   right: 0;
   top: 0;
 }
-
 /* Social Buttons */
 .btn-facebook {
   color: @white !important;
@@ -342,9 +341,9 @@ File: Components
     &::before {
       -o-transition: 0.3s ease-in-out;
       -webkit-transition: 0.3s ease-in-out;
-      background-color: transparent;
-      border-radius: 3px;
-      border: 2px solid @muted;
+      background-color: @white;
+      border-radius: 2px;
+      border: 1px solid @lightdark-alt;
       content: "";
       display: inline-block;
       height: 17px;
@@ -356,7 +355,7 @@ File: Components
       outline: none !important;
     }
     &::after {
-      color: @light;
+      color: @lightdark5;
       display: inline-block;
       font-size: 11px;
       height: 16px;
@@ -529,7 +528,6 @@ File: Components
 
 .radio {
   padding-left: 20px;
-
   label {
     display: inline-block;
     padding-left: 5px;
@@ -537,8 +535,9 @@ File: Components
     &::before {
       -o-transition: border 0.5s ease-in-out;
       -webkit-transition: border 0.5s ease-in-out;
+      background-color: @white;
       border-radius: 50%;
-      border: 2px solid @muted;
+      border: 1px solid @lightdark-alt;
       content: "";
       display: inline-block;
       height: 17px;
@@ -556,7 +555,7 @@ File: Components
       -o-transition: -o-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
       -webkit-transform: scale(0, 0);
       -webkit-transition: -webkit-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
-      background-color: @light;
+      background-color: @lightdark5;
       border-radius: 50%;
       content: " ";
       display: inline-block;
@@ -582,8 +581,6 @@ File: Components
   input[type="radio"]:focus + label {
     &::before {
       outline-offset: -2px;
-      outline: 5px auto -webkit-focus-ring-color;
-      outline: thin dotted;
     }
   }
   input[type="radio"]:checked + label {
@@ -749,7 +746,6 @@ File: Components
 
 .panel {
   border: none;
-  background-color: darken(@dark,10%);
   margin-bottom: 20px;
   box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.06), 0 1px 0px 0 rgba(0, 0, 0, 0.02);
 
@@ -771,8 +767,7 @@ File: Components
 
 .panel-default > .panel-heading {
   border-bottom: none;
-  color: @muted;
-  background-color: darken(@dark,15%);
+  color: #797979;
 }
 
 .panel-title {
@@ -831,7 +826,7 @@ File: Components
 
 
 .panel-border .panel-heading {
-  background-color: transparent;
+  background-color: @white;
   border-top: 3px solid #DADFE2 !important;
   padding: 10px 20px 0px;
 }
@@ -926,7 +921,7 @@ File: Components
     }
     .panel-heading + .panel-collapse {
       .panel-body {
-        border: 1px solid fade(@white,10%);
+        border: 1px solid @lightdark;
         border-top: none;
       }
     }
@@ -938,7 +933,7 @@ File: Components
 
 .panel-group.panel-group-joined {
   .panel + .panel {
-    border-top: 1px solid fade(@white,10%);
+    border-top: 1px solid @light;
     margin-top: 0;
   }
 }
@@ -960,7 +955,6 @@ File: Components
       a{
         background-color: transparent !important;
         font-weight: 500;
-        border: none !important;
         border-bottom-left-radius: 0px;
         border-bottom-right-radius: 0px;
         color: @white !important;
@@ -968,8 +962,8 @@ File: Components
     }
     li.active {
       a {
-        background-color: darken(@dark,10%) !important;
-        color: @white !important;
+        background-color: @white !important;
+        color: @dark !important;
       }
     }
   }
@@ -979,7 +973,7 @@ File: Components
   }
 }
 
-/* Card tabs */
+/* Panel tabs */
 .card-tabs {
   .nav-pills {
     li {
@@ -988,8 +982,7 @@ File: Components
         font-size: 13px;
         background-color: transparent !important;
         font-weight: 500;
-        border: none !important;
-        color: @white !important;
+        color: @dark !important;
       }
     }
     li.active {
@@ -1010,15 +1003,16 @@ File: Components
 ============= */
 
 .portlet {
-  background-color: darken(@dark,10%);
+  background: @white;
   box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.06), 0 1px 0px 0 rgba(0, 0, 0, 0.02);
   .border-radius(5px);
-  -webkit-transition: 1s ease-in-out;
-    -moz-transition: 1s ease-in-out;
-    -o-transition: 1s ease-in-out;
-    transition: 1s ease-in-out;
   margin-bottom: 20px;
   position: relative;
+  -webkit-transition: opacity 3s ease-in-out;
+    -moz-transition: opacity 3s ease-in-out;
+    -ms-transition: opacity 3s ease-in-out;
+    -o-transition: opacity 3s ease-in-out;
+     opacity: 1;
 
   .portlet-heading {
     .border-radius(3px 3px 0px 0px);
@@ -1054,7 +1048,7 @@ File: Components
       }
     }
     a {
-      color: @white;
+      color: #999999;
       padding: 0px 5px;
     }
   }
@@ -1063,21 +1057,30 @@ File: Components
     -moz-border-radius-bottomright: 5px;
     -webkit-border-bottom-left-radius: 5px;
     -webkit-border-bottom-right-radius: 5px;
-    background-color: darken(@dark,10%);
+    background: @white;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     padding: 15px;
   }
 }
 
+.portlet-default {
+  .portlet-title {
+    color: @lightdark7 !important;
+  }
+}
+
+.portlet .portlet-heading.bg-custom a, .portlet .portlet-heading.bg-purple a, .portlet .portlet-heading.bg-info a, .portlet .portlet-heading.bg-success a, .portlet .portlet-heading.bg-primary a, .portlet .portlet-heading.bg-danger a, .portlet .portlet-heading.bg-warning a, .portlet .portlet-heading.bg-inverse a, .portlet .portlet-heading.bg-pink a {
+  color: @white;
+  padding: 0px 5px;
+}
 
 .panel-disabled {
-  background: rgba(33, 33, 33, 0.5);
+  background: rgba(243, 242, 241, 0.5);
   left: 0;
-  right: 0;
-  .border-radius(5px);
   cursor: wait;
   position: absolute;
+  right: -5px;
   top: 0;
   bottom: 0;
 }
@@ -1085,7 +1088,7 @@ File: Components
 .loader-1 {
   width: 30px;
   height: 30px;
-  background-color: @muted;
+  background-color: @dark;
   -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
   animation: sk-rotateplane 1.2s infinite ease-in-out;
   position: absolute;
@@ -1098,19 +1101,21 @@ File: Components
 
 // Draggable cards
 .card-draggable-placeholder {
-  border: 2px dashed fade(@white, 50%);
+  border: 2px dashed fade(@dark, 50%);
   margin-bottom: 16px;
-  background-color: fade(@white, 8%);
+  background-color: fade(@dark, 8%);
 }
+
 
 
 /* =============
    Progressbars
 ============= */
 
+
 .progress {
   -webkit-box-shadow: none !important;
-  background-color: fade(@light5,20%);
+  background-color: @light5;
   box-shadow: none !important;
   height: 10px;
   margin-bottom: 18px;
@@ -1284,31 +1289,19 @@ File: Components
 .table {
   margin-bottom: 10px;
 }
-tbody {
-  color: @muted;
-}
-
-th {
-  color: @light;
-  font-weight: 600;
-}
-.table > thead > tr > th {
-    vertical-align: bottom;
-    border-bottom: 2px solid fade(@white,15%);
-}
 
 .table-striped>tbody>tr:nth-of-type(odd),.table-hover > tbody > tr:hover,
 .table > thead > tr > td.active, .table > tbody > tr > td.active, .table > tfoot > tr > td.active,
 .table > thead > tr > th.active, .table > tbody > tr > th.active, .table > tfoot > tr > th.active,
 .table > thead > tr.active > td, .table > tbody > tr.active > td, .table > tfoot > tr.active > td,
 .table > thead > tr.active > th, .table > tbody > tr.active > th, .table > tfoot > tr.active > th {
-    background-color: fade(@white,10%) !important;
+    background-color: @lightdark !important;
 }
 
 .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th,
 .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td ,
 .table > thead > tr > th, .table-bordered{
-    border-top: 1px solid fade(@white,10%);
+    border-top: 1px solid @light5;
 }
 .table-bordered > thead > tr > th,
 .table-bordered > tbody > tr > th,
@@ -1316,36 +1309,24 @@ th {
 .table-bordered > thead > tr > td,
 .table-bordered > tbody > tr > td,
 .table-bordered > tfoot > tr > td {
-  border: 1px solid fade(@white,10%);
+  border: 1px solid @light5;
+}
+.table > thead > tr > th {
+    vertical-align: bottom;
+    border-bottom: 2px solid @light5;
 }
 
-.table>tbody>tr.success>td, .table>tbody>tr.success>th, .table>tbody>tr>td.success,
-.table>tbody>tr>th.success, .table>tfoot>tr.success>td, .table>tfoot>tr.success>th,
-.table>tfoot>tr>td.success, .table>tfoot>tr>th.success, .table>thead>tr.success>td,
-.table>thead>tr.success>th, .table>thead>tr>td.success, .table>thead>tr>th.success {
-  background-color: fade(@success,20%);
+tbody {
+  color: @lightdark7;
 }
-.table>tbody>tr.info>td, .table>tbody>tr.info>th, .table>tbody>tr>td.info,
-.table>tbody>tr>th.info, .table>tfoot>tr.info>td, .table>tfoot>tr.info>th,
-.table>tfoot>tr>td.info, .table>tfoot>tr>th.info, .table>thead>tr.info>td,
-.table>thead>tr.info>th, .table>thead>tr>td.info, .table>thead>tr>th.info{
-  background-color: fade(@info,20%);
-}
-.table>tbody>tr.warning>td, .table>tbody>tr.warning>th, .table>tbody>tr>td.warning,
-.table>tbody>tr>th.warning, .table>tfoot>tr.warning>td, .table>tfoot>tr.warning>th,
-.table>tfoot>tr>td.warning, .table>tfoot>tr>th.warning, .table>thead>tr.warning>td,
-.table>thead>tr.warning>th, .table>thead>tr>td.warning, .table>thead>tr>th.warning {
-  background-color: fade(@warning,20%);
-}
-.table>tbody>tr.danger>td, .table>tbody>tr.danger>th, .table>tbody>tr>td.danger,
-.table>tbody>tr>th.danger, .table>tfoot>tr.danger>td, .table>tfoot>tr.danger>th,
-.table>tfoot>tr>td.danger, .table>tfoot>tr>th.danger, .table>thead>tr.danger>td,
-.table>thead>tr.danger>th, .table>thead>tr>td.danger, .table>thead>tr>th.danger {
-  background-color: fade(@danger,20%);
+
+th {
+  color: #666666;
+  font-weight: 600;
 }
 
 .table-bordered {
-    border: 1px solid fade(@white,10%);
+    border: 1px solid @light5;
 }
 table.focus-on {
   tbody {
@@ -1361,31 +1342,93 @@ table.focus-on {
     }
   }
 }
-div.DTS tbody tr.odd {
-  background-color: #435159 !important;
-}
-div.DTS tbody tr.even {
-  background-color: darken(@dark,10%);
-}
-.dataTables_scrollBody {
-  table {
-    border-left:none !important;
+
+.table-rep-plugin {
+  .table-responsive {
+    border: none !important;
+  }
+  tbody {
+    th {
+      font-size: 14px;
+      font-weight: normal;
+    }
+  }
+  .checkbox-row {
+    padding-left: 40px;
+
+    label {
+      display: inline-block;
+      padding-left: 5px;
+      position: relative;
+      &::before {
+        -o-transition: 0.3s ease-in-out;
+        -webkit-transition: 0.3s ease-in-out;
+        background-color: @white;
+        border-radius: 3px;
+        border: 1px solid @lightdark-alt;
+        content: "";
+        display: inline-block;
+        height: 17px;
+        left: 0;
+        margin-left: -20px;
+        position: absolute;
+        transition: 0.3s ease-in-out;
+        width: 17px;
+        outline: none !important;
+      }
+      &::after {
+        color: @lightdark5;
+        display: inline-block;
+        font-size: 11px;
+        height: 16px;
+        left: 0;
+        margin-left: -20px;
+        padding-left: 3px;
+        padding-top: 1px;
+        position: absolute;
+        top: -1px;
+        width: 16px;
+      }
+    }
+    input[type="checkbox"] {
+      cursor: pointer;
+      opacity: 0;
+      z-index: 1;
+      outline: none !important;
+
+      &:disabled + label {
+        opacity: 0.65;
+      }
+    }
+    input[type="checkbox"]:focus + label {
+      &::before {
+        outline-offset: -2px;
+        outline: none;
+      }
+    }
+    input[type="checkbox"]:checked + label {
+      &::after {
+        content: "\f00c";
+        font-family: 'FontAwesome';
+      }
+    }
+    input[type="checkbox"]:disabled + label {
+      &::before {
+        background-color: @light;
+        cursor: not-allowed;
+      }
+    }
+    input[type="checkbox"]:checked + label {
+      &::before {
+        background-color: @custom;
+        border-color: @custom;
+      }
+      &::after {
+        color: @white;
+      }
+    }
   }
 }
-
-/* Fixed header table */
-.fixedHeader-floating {
-  border: none !important;
-
-  .sorting, .sorting_asc {
-    background-color: @dark;
-    border-color: fade(@light, 30%);
-  }
-}
-.fixedHeader-floating {
-  top: 70px !important;
-}
-
 
 .fixed-table-container tbody .selected td {
     background-color: @lightdark;
@@ -1409,7 +1452,7 @@ div.DTS tbody tr.even {
     }
   }
   .form-control {
-    background-color: transparent;
+    background-color: @white;
     width: 100%;
   }
   .fa-trash-o {
@@ -1461,6 +1504,10 @@ table.dataTable.dtr-inline.collapsed>tbody>tr>th:first-child:before{
 table.dataTable.dtr-inline.collapsed>tbody>tr.parent>td:first-child:before,
 table.dataTable.dtr-inline.collapsed>tbody>tr.parent>th:first-child:before {
   background-color: @danger;
+}
+/* Fixed table */
+.fixedHeader-floating {
+  top: 70px !important;
 }
 
 /* Key Table */
@@ -1516,31 +1563,12 @@ table.dataTable th.focus, table.dataTable td.focus {
   }
 }
 
-/* Team list */
-.team-list {
-  .name {
-    color: fade(@white,50%) !important;
-  }
-  .list-group-item {
-    border: none;
-    border-bottom: 1px solid fade(@white,10%);
-    &:first-child {
-      border-top: none;
-      .border-radius(0px);
-    }
-
-    &:hover {
-      background-color: fade(@white,5%) !important;
-    }
-  }
-}
-
 
 /* Inbox-widget */
 
 .inbox-widget {
   .inbox-item {
-    border-bottom: 1px solid fade(@white,10%);
+    border-bottom: 1px solid @light3;
     overflow: hidden;
     padding: 10px 0;
     position: relative;
@@ -1554,7 +1582,7 @@ table.dataTable th.focus, table.dataTable td.focus {
       width: 40px;
     }
     .inbox-item-author {
-      color: fade(@white,70%);
+      color: @lightdark3;
       display: block;
       margin: 0;
     }

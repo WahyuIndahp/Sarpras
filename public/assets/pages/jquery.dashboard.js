@@ -22,9 +22,8 @@
             labels: labels,
             hideHover: 'auto',
             resize: true, //defaulted to true
-            gridLineColor: '#2f3e47',
+            gridLineColor: '#eeeeee',
             barSizeRatio: 0.2,
-            gridTextColor: '#98a6ad',
             barColors: lineColors
         });
     },
@@ -41,11 +40,10 @@
           pointFillColors: Pfillcolor,
           pointStrokeColors: Pstockcolor,
           behaveLikeLine: true,
-          gridLineColor: '#2f3e47',
+          gridLineColor: '#eef0f2',
           hideHover: 'auto',
           resize: true, //defaulted to true
           pointSize: 0,
-          gridTextColor: '#98a6ad',
           lineColors: lineColors
         });
     },
@@ -56,9 +54,7 @@
             element: element,
             data: data,
             resize: true, //defaulted to true
-            colors: colors,
-            backgroundColor: '#2f3e47',
-            labelColor: '#fff'
+            colors: colors
         });
     },
     
@@ -91,9 +87,9 @@
 
         //creating donut chart
         var $donutData = [
-                {label: "Kesehatan", value: 5},
-                {label: "Pemerintahan", value: 7},
-                {label: "Industry", value: 12}
+                {label: "Download Sales", value: 12},
+                {label: "In-Store Sales", value: 30},
+                {label: "Mail-Order Sales", value: 20}
             ];
         this.createDonutChart('morris-donut-example', $donutData, ['#ff8acc', '#5b69bc', "#35b8e0"]);
     },

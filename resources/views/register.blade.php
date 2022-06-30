@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
+    <meta name="author" content="Coderthemes">
+
+    <!-- App Favicon -->
+    <link rel="shortcut icon" href="/assets/images/faviconn.ico">
+
+    <!-- App title -->
+    <title>SISTEM INFORMASI MANAJEMEN SARANA PRASARANA</title>
+
+    <!-- App CSS -->
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/core.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/components.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/icons.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/pages.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/menu.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/responsive.css" rel="stylesheet" type="text/css" />
+
+    <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+    <script src="/assets/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="antialiased">
+    <div class="account-pages"></div>
+    <div class="clearfix"></div>
+    <div class="wrapper-page">
+
+        <div class="m-t-40 card-box" position="right">
+            <div class="text-center m-t-20">
+                <a href="#" class="logo"><span>SDN <span>Kebonsari 3</span></span></a>
+                <h5 class="text-muted m-t-0 font-600">SISTEM INFORMASI<br> MANAJEMEN SARANA PRASARANA</h5>
+            </div>
+            <div class="alert alert-danger m-t-20" id="alert-login" style="text-align:center;margin-bottom: 0;">
+                REGISTER FORM</div>
+            <div class="panel-body">
+                <form class="form-horizontal" action="/register" method="post">
+                    @csrf
+                    <div class="form-group m-t-20">
+                        <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+                        <input class="form-control form-control-solplaceholder-no-fix text-transform: Capitalize" type="text" autocomplete="off"
+                            placeholder="Nama" name="name" id="name" required value="{{ old ('name') }}" />
+                        @error('name')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+                    <div class="form-group m-t-20">
+                        <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+                        <input class="form-control form-control-solplaceholder-no-fix" type="text" autocomplete="off"
+                            placeholder="Username" name="username" id="username" required
+                            value="{{ old ('username') }}" />
+                        @error('username')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+                    <div class="form-group m-t-20">
+                        <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+                        <input class="form-control form-control-solplaceholder-no-fix" type="email" autocomplete="off"
+                            placeholder="email@gmail.com" name="email" id="email" required
+                            value="{{ old ('email') }}" />
+                        @error('email')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+                    <div class="form-group m-t-20">
+                        <input class="form-control form-control-solplaceholder-no-fix" type="text" autocomplete="off"
+                            placeholder="Password" name="password" id="password" required />
+                        @error('password')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+
+                    <div class="form-group m-t-20">
+                        <div class="col-sm-14">
+                            <select class="form-control form-control-solplaceholder-no-fix" name="level" id="level" required>
+                            <optgroup label="Level User">
+                                <option value="Koordinator">Koordinator</option>
+                                <option value="Pj Ruang">Pj Ruang</option>
+                                <option value="Staff">Staff</option>
+                            </optgroup>
+                            </select>
+                        </div>
+                        @error('level')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+
+                    <div class="form-group m-t-30">
+                        <div class="col-xs-4 col-sm-offset-4">
+                            <button class="btn btn-custom btn-bordred btn-block waves-effect waves-light"
+                                type="submit">Register <i class="fa fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="form-group m-t-30 m-b-0">
+                        <div class="col-sm-12">
+                            <p class="text-muted">Sudah punya akun?<a href="/login"
+                                    class="text-primary m-l-5"><b>Login</b></a></p>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+        <!-- end card-box-->
+
+    </div>
+    <!-- end wrapper page -->
+
+
+
+    <script>
+    var resizefunc = [];
+    </script>
+
+    <!-- jQuery  -->
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/detect.js"></script>
+    <script src="/assets/js/fastclick.js"></script>
+    <script src="/assets/js/jquery.slimscroll.js"></script>
+    <script src="/assets/js/jquery.blockUI.js"></script>
+    <script src="/assets/js/waves.js"></script>
+    <script src="/assets/js/wow.min.js"></script>
+    <script src="/assets/js/jquery.nicescroll.js"></script>
+    <script src="/assets/js/jquery.scrollTo.min.js"></script>
+
+    <!-- App js -->
+    <script src="/assets/js/jquery.core.js"></script>
+    <script src="/assets/js/jquery.app.js"></script>
+
+    <script type="text/javascript">
+    function tampilkan_password() {
+        if ($("#chk_tampilkan").prop("checked") == true) {
+            $("#password").attr("type", "text");
+        } else {
+            $("#password").attr("type", "password");
+        }
+    }
+    </script>
+
+    <!-- END JAVASCRIPTS -->
+</body>
+
+</html>

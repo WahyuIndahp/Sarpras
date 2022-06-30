@@ -29,13 +29,13 @@
                             </button>
                         </li>
                         <li>
-                            <h4 class="page-title">SISTEM INFORMASI PELAPORAN INSTALASI & TICKETING</h4>
+                            <h4 class="page-title">SISTEM INFORMASI MANAJEMEN SARANA PRASARANA</h4>
                         </li>
                     </ul>
 
-                    <!-- Right(Notification and Searchbox -->
+                    {{-- <!-- Right(Notification and Searchbox -->
                     @include('fix.right')
-                    <!-- End Notification bar -->
+                    <!-- End Notification bar --> --}}
 
                 </div><!-- end container -->
             </div><!-- end navbar -->

@@ -2,6 +2,17 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RuangController;
+use App\Http\Controllers\PlanController;
+use App\Http\Controllers\PerekapanController;
+use App\Http\Controllers\PengadaanController;
+use App\Http\Controllers\KondisiController;
+use App\Http\Controllers\PembenahanController;
+use App\Http\Controllers\PenghapusanController;
+use App\Http\Controllers\InventoryController;
+use App\Http\Controllers\DistribusiController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,131 +24,166 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('login');
-});
+//Route::get('/register', [RegisterController::class, 'index']->middleware('guest'));
+Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
+
+Route::post('/register', [RegisterController::class, 'store']);
+
+Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
+
+Route::post('/login', [LoginController::class, 'authenticate']);
+
+//logout
+// Route::get('/logout', function () {
+//     return view('login');
+// });
+
+Route::post('/logout', [LoginController::class, 'logout']);
+
+//Route::get('/db', [DashboardController::class, 'index'])->middleware('auth');
 
 Route::get('/db', function () {
     return view('welcome');
+})->middleware('auth');
+
+// Route::get('/login', function () {
+//     return view('login');
+// });
+
+Route::resource('/dataruangsekolah', RuangController::class);
+
+// Route::get('/formdataruang', function () {
+//     return view('Menu.DataRuang.formdataruang');
+// });
+
+// Route::get('/dataruangkelas', function () {
+//     return view('Menu.dataruang');
+// });
+
+// Route::get('/editdataruang', function () {
+//     return view('Menu.editdataruang');
+// });
+
+//========================================//
+Route::get('/dataakun', function () {
+    return view('Koordinator.dataakun');
+});
+//========================================//
+
+Route::resource('/dataperencanaan', PlanController::class);
+
+// Route::get('/dataperencanaan', function () {
+//     return view('Menu.Perencanaan.dataperencanaan');
+// });
+
+// Route::get('/formperencanaan', function () {
+//     return view('Menu.Perencanaan.formperencanaan');
+// });
+
+Route::resource('/dataperekapan', PerekapanController::class);
+
+// Route::get('/dataperekapan', function () {
+//     return view('Koordinator.dataperekapan');
+// });
+
+// Route::get('/formperekapan', function () {
+//     return view('Menu.Perencanaan.formperekapan');
+// });
+
+Route::resource('/datapengadaan', PengadaanController::class);
+
+// Route::get('/datapengadaan', function () {
+//     return view('Koordinator.datapengadaan');
+// });
+
+// Route::get('/formpengadaan', function () {
+//     return view('Menu.Pengadaan.formpengadaan');
+// });
+
+Route::resource('/datapendistribusian', DistribusiController::class);
+
+// Route::get('/datapendistribusian', function () {
+//     return view('Menu.Pendistribusian.datapendistribusian');
+// });
+
+// Route::get('/formpendistribusian', function () {
+//     return view('Menu.Pendistribusian.formpendistribusian');
+// });
+
+// Route::get('/detailpendistribusian', function () {
+//     return view('Menu.Pendistribusian.detailpendistribusian');
+// });
+
+Route::resource('/datainventaris', InventoryController::class);
+
+// Route::get('/datainventaris', function () {
+//     return view('Menu.Inventaris.datainventaris');
+// });
+
+// Route::get('/forminventaris', function () {
+//     return view('Menu.Inventaris.forminventaris');
+// });
+
+// Route::get('/detailinventaris', function () {
+//     return view('Menu.Inventaris.detailinventaris');
+// });
+
+Route::get('/datapeminjaman', function () {
+    return view('Menu.Peminjaman.datapeminjaman');
 });
 
-Route::get('/login', function () {
-    return view('login');
+// Route::get('/formpeminjaman', function () {
+//     return view('Menu.Peminjaman.formpeminjaman');
+// });
+
+Route::get('/datapengembalian', function () {
+    return view('Menu.Peminjaman.datapengembalian');
 });
 
-Route::get('/admtr', function () {
-    return view('administrator');
+// Route::get('/formpengembalian', function () {
+//     return view('Menu.Peminjaman.formpengembalian');
+// });
+
+Route::resource('/datakondisi', KondisiController::class);
+
+// Route::get('/datakondisi', function () {
+//     return view('Menu.Kondisi.datakondisi');
+// });
+
+// Route::get('/formkondisi', function () {
+//     return view('Menu.Kondisi.formkondisi');
+// });
+
+Route::resource('/datapembenahan', PembenahanController::class);
+
+// Route::get('/datapembenahan', function () {
+//     return view('Menu.Kondisi.datapembenahan');
+// });
+
+// Route::get('/formpembenahan', function () {
+//     return view('Menu.Kondisi.formpembenahan');
+// });
+
+Route::resource('/datapenghapusan', PenghapusanController::class);
+
+// Route::get('/datapenghapusan', function () {
+//     return view('Menu.Kondisi.datapenghapusan');
+// });
+
+// Route::get('/formpenghapusan', function () {
+//     return view('Menu.Kondisi.formpenghapusan');
+// });
+
+//administrator
+
+Route::get('/editadmtr', function () {
+    return view('Koordinator.editadministrator');
 });
 
-Route::get('/eadmtr', function () {
-    return view('editadministrator');
-});
-
-Route::get('/eduser', function () {
-    return view('edituser');
-});
-
-Route::get('/fuser', function () {
-    return view('formuser');
-});
-
-Route::get('/datal', function () {
-    return view('datainstalasi');
-});
-
-Route::get('/edatal', function () {
-    return view('editdatal');
-});
-
-Route::get('/detaildatal', function () {
-    return view('detaildatal');
-});
-
-Route::get('/detaildataltns', function () {
-    return view('detaildataltns');
-});
-
-Route::get('/instal', function () {
-    return view('instalasi');
-});
-
-Route::get('/fdatal', function () {
-    return view('formdatal');
-});
-
-Route::get('/fdating', function () {
-    return view('formdating');
-});
-
-Route::get('/edating', function () {
-    return view('editdating');
-});
-
-Route::get('/dating', function () {
-    return view('dataticketing');
-});
-
-Route::get('/riwayat', function () {
-    return view('riwayat');
-});
-
-
-Route::get('/lapin', function () {
-    return view('laporaninstalasi');
-});
-
-Route::get('/dlapin', function () {
-    return view('detaillapin');
-});
-
-Route::get('/flapin', function () {
-    return view('formlapin');
-});
-
-Route::get('/penginstalan', function () {
-    return view('datapenginstalan');
-});
-
-Route::get('/tiket', function () {
-    return view('ticketting');
-});
-
-Route::get('/lating', function () {
-    return view('laporanticketing');
-});
-
-Route::get('/lapting', function () {
-    return view('lapticketing');
-});
-
-Route::get('/detailtiket', function () {
-    return view('detailticketting');
-});
-
-Route::get('/detailtiketadm', function () {
-    return view('detailticketingadm');
-});
-
-Route::get('/mnjlating', function () {
-    return view('detailticketingmnj');
-});
-
-Route::get('/detaillating', function () {
-    return view('detaillating');
-});
-
-Route::get('/ftiket', function () {
-    return view('formticketting');
-});
-
-Route::get('/grafik', function () {
-    return view('grafik');
+Route::get('/formuser', function () {
+    return view('Koordinator.formuser');
 });
 
 Route::get('/coba', function () {
-    return view('coba');
-});
-
-Route::get('/logout', function () {
-    return view('login');
+    return view('Menu.coba');
 });

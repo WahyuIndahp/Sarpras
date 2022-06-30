@@ -2,6 +2,7 @@
 @import "variables.less";
 @import "elements.less";
 
+
 /*
 Template Name: Adminto Dashboard
 Author: CoderThemes
@@ -677,7 +678,6 @@ File: Menu
     text-transform: uppercase;
     font-size: 14px;
     font-weight: 600;
-    color: @dark !important;
     letter-spacing: 0.03em;
   }
   .right-bar-toggle {
@@ -698,7 +698,7 @@ File: Menu
     margin-bottom: 0px;
   }
   .list-group-item.active {
-    background-color: fade(@muted,10%) !important;
+    background-color: fade(@muted,10%);
   }
 }
 
@@ -810,13 +810,6 @@ input.app-search-input {
   &:-ms-input-placeholder {
     color: fade(@white, 70%);
   }
-}
-
-
-// Page title
-
-.page-title {
-  color: @dark !important;
 }
 
 

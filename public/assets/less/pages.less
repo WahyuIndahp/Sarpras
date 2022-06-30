@@ -38,6 +38,7 @@ File: Pages
    Calendar
 ============= */
 
+
 .calendar {
   float: left;
   margin-bottom: 0px;
@@ -64,7 +65,7 @@ File: Pages
 }
 
 .fc-day {
-  background: transparent;
+  background: @white;
 }
 
 .fc-toolbar .fc-state-active, .fc-toolbar .ui-state-active,
@@ -83,7 +84,7 @@ File: Pages
 
 .fc {
   th.fc-widget-header {
-    background: fade(@white,20%);
+    background: @light5;
     font-size: 14px;
     line-height: 20px;
     padding: 10px 0px;
@@ -91,16 +92,10 @@ File: Pages
   }
 }
 
-.fc-unthemed th, .fc-unthemed td, .fc-unthemed thead, .fc-unthemed tbody,
-.fc-unthemed .fc-divider, .fc-unthemed .fc-row, .fc-unthemed .fc-popover {
-  background-color: transparent;
-  border-color: fade(@white,10%);
-}
-
 .fc-button {
   background: @white;
   border: 1px solid @light5;
-  color: #555555;
+  color: @lightdark5;
   text-transform: capitalize;
 }
 
@@ -110,7 +105,7 @@ File: Pages
 }
 
 .fc-state-hover {
-  background: #F5F5F5;
+  background: @light3;
 }
 
 .fc-state-highlight {
@@ -123,7 +118,7 @@ File: Pages
 
 .fc-unthemed {
   .fc-today {
-    background: transparent;
+    background: @white;
   }
 }
 
@@ -169,15 +164,13 @@ File: Pages
 /* X-Editable */
 .editable-click, a.editable-click, a.editable-click:hover{
   border: none;
-  color: @custom;
 }
 
+/* Bootstrap tagsinput */
 .bootstrap-tagsinput {
   box-shadow: none;
   padding: 3px 7px 6px;
-  border: 2px solid fade(@white,20%);
-  background-color: transparent;
-  color: @white;
+  border: 1px solid #e3e3e3;
 
   .label-info {
     background-color: @custom !important;
@@ -191,11 +184,11 @@ File: Pages
 
   .ms-list {
     box-shadow: none;
-    border: 2px solid fade(@white,20%);
+    border: 1px solid #e3e3e3;
   }
   .ms-list.ms-focus {
     box-shadow: none;
-    border: 2px solid fade(@white,30%);
+    border: 1px solid #aaaaaa;
   }
   .ms-selectable {
     li.ms-elem-selectable{
@@ -210,52 +203,23 @@ File: Pages
     }
   }
 }
-.ms-selectable {
-    box-shadow: none;
-    outline: none !important;
-  }
-
-  .ms-container {
-    .ms-list.ms-focus {
-      box-shadow: none;
-    }
-    .ms-selectable {
-      li.ms-hover {
-        background-color: @primary;
-        color: @white !important;
-      }
-    }
-    .ms-selection {
-      li.ms-hover {
-        background-color: @primary;
-        color: @white !important;
-      }
-    }
-  }
-.ms-container .ms-selectable, .ms-container .ms-selection {
-  background-color: transparent;
-}
-.ms-container .ms-selectable li.ms-elem-selectable, .ms-container .ms-selection li.ms-elem-selection {
-  color: @muted;
-}
-/* Select2 */
+/* Select 2 */
 .select2-container {
   .select2-choice {
     background-image: none !important;
     border: none !important;
     height: auto  !important;
-    padding: 0 0 0 15px !important;
-    line-height: 32px !important;
+    padding: 0px !important;
+    line-height: 22px !important;
     background-color: transparent !important;
     box-shadow: none !important;
-    color: @white;
 
     .select2-arrow {
       background-image: none !important;
       background: transparent;
       border: none;
       width: 14px;
-      right: 10px;
+      right: 5px;
       top: 2px;
     }
   }
@@ -266,9 +230,6 @@ File: Pages
 .select2-results .select2-highlighted {
   color: @white;
   background-color: @custom;
-}
-.form-control.select2-container {
-  height: 36px !important;
 }
 .select2-drop-active {
   border: 1px solid #e3e3e3 !important;
@@ -284,19 +245,18 @@ File: Pages
   width: 100%;
 
   .select2-choices {
-    border: 2px solid fade(@white,20%)  !important;
+    border: 1px solid #E3E3E3  !important;
     box-shadow: none !important;
-    background: transparent !important;
     background-image: none  !important;
     .border-radius(4px)  !important;
     min-height: 38px;
 
     .select2-search-choice {
-      padding: 6px 8px 7px 19px;
+      padding: 4px 7px 4px 18px;
       margin: 5px 0 3px 5px;
-      color: @white;
-      background: fade(@white,20%);
-      border: none;
+      color: @lightdark5;
+      background: #f5f5f5;
+      border-color: #e5e5e5;
       -webkit-box-shadow: none;
       box-shadow: none;
     }
@@ -306,10 +266,12 @@ File: Pages
         font-family: inherit;
       }
     }
-    .select2-search-choice-close {
-      top: 6px;
-    }
   }
+}
+.select2-chosen {
+    height: 34px;
+    line-height: 34px;
+    padding-left: 15px;
 }
 /* Bootstrap-select */
 .bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
@@ -342,7 +304,6 @@ File: Pages
   list-style: none;
   color: @danger;
 }
-
 /* Datepicker */
 .datepicker {
   padding: 8px;
@@ -350,19 +311,6 @@ File: Pages
     font-size: 14px !important;
   }
 }
-.datepicker-dropdown:before {
-    border-bottom: 7px solid @muted;
-}
-.datepicker-dropdown:after {
-    border-bottom: 6px solid @muted;
-}
-
-.datepicker-days {
-  tbody {
-    color: @dark;
-  }
-}
-
 .datepicker table tr td.today, .datepicker table tr td.today:hover,
 .datepicker table tr td.today.disabled, .datepicker table tr td.today.disabled:hover,
 .datepicker table tr td.selected, .datepicker table tr td.selected:hover,
@@ -370,7 +318,6 @@ File: Pages
 .datepicker table tr td span.active, .datepicker table tr td span.active:hover,
 .datepicker table tr td span.active.disabled, .datepicker table tr td span.active.disabled:hover {
   background-image: none;
-  background-color: fade(@white,50%) !important;
 }
 .datepicker table tr td span.active:hover, .datepicker table tr td span.active:hover:hover,
 .datepicker table tr td span.active.disabled:hover, .datepicker table tr td span.active.disabled:hover:hover,
@@ -392,75 +339,33 @@ File: Pages
   text-shadow: none;
 }
 .datepicker thead tr:first-child th:hover, .datepicker tfoot tr th:hover{
-  background-color: transparent;
+  background-color: @light-alt;
 }
 .datepicker-inline {
-  border: 2px solid fade(@white,20%);
-
-  .datepicker-days tbody {
-    color: @muted;
-  }
-  td.old, td.new {
-    color: fade(@white,20%) !important;
-  }
-}
-
-/* Date range */
-.daterangepicker {
-  .available {
-    color: @dark;
-  }
-}
-.daterangepicker.opensleft:before {
-    border-bottom: 7px solid @muted;
-}
-.daterangepicker.opensleft:after {
-    border-bottom: 6px solid @muted;
-}
-
-.daterangepicker.opensright:after {
-  border-bottom: 6px solid @muted;
+  border: 2px solid @light;
 }
 .daterangepicker td.active, .daterangepicker td.active:hover {
     background-color: @primary;
+    border-color: @primary;
 }
-.daterangepicker .input-mini {
-    border: 1px solid @muted !important;
-  background-color: fade(@white,20%) !important;
-}
-.daterangepicker .calendar-table {
-  background-color: fade(@white,20%) !important;
+.daterangepicker .input-mini.active {
+    border: 1px solid #AAAAAA;
 }
 .daterangepicker .ranges li {
   .border-radius(2px);
   color: @dark;
   font-weight: 600;
   font-size: 12px;
-  background: fade(@white,20%);
-  border: none;
 }
 .daterangepicker select.hourselect, .daterangepicker select.minuteselect,
 .daterangepicker select.secondselect, .daterangepicker select.ampmselect{
+  border: 1px solid #e3e3e3;
   padding: 2px;
   width: 60px;
-  background-color: fade(@white,20%);
-  color: @dark;
-  border: none;
-}
-.daterangepicker td.off, .daterangepicker td.off.in-range,
-.daterangepicker td.off.start-date, .daterangepicker td.off.end-date {
-  background-color: transparent;
 }
 .daterangepicker .ranges li.active, .daterangepicker .ranges li:hover {
   background-color: @primary;
-    border: none;
-}
-.datepicker table tr td.old, .datepicker table tr td.new {
-    color: fade(@white,50%);
-
-  &:hover {
-    background-color: transparent !important;
-  }
+      border: 1px solid @primary;
 }
 
 
@@ -491,7 +396,7 @@ File: Pages
 
 
 
-/* Bootstrap time picker */
+/* Timepicker */
 .bootstrap-timepicker-widget {
   table {
     td {
@@ -506,24 +411,11 @@ File: Pages
       }
       input {
         border: none;
-        color: @dark;
-        font-weight: 600;
-        background-color: transparent;
       }
     }
   }
 }
 
-.bootstrap-timepicker-widget.dropdown-menu:after {
-  border-bottom: 6px solid @muted;
-}
-.bootstrap-timepicker-widget.timepicker-orient-bottom:before {
-  border-top: 7px solid @muted;
-}
-.bootstrap-timepicker-widget.timepicker-orient-bottom:after {
-  border-top: 6px solid @muted;
-  border-bottom: 6px solid transparent;
-}
 
 
 /* Bootstrap-touchSpin */
@@ -562,28 +454,7 @@ File: Pages
   }
 }
 
-/* Dropify */
-.dropify-wrapper {
-  background-color: transparent;
-  border: 2px solid fade(@muted,50%);
-  .border-radius(5px);
-
-  &:hover {
-    background-image: none;
-  }
-
-  .dropify-message p {
-    color: @muted;
-  }
-  .dropify-preview {
-    background-color: transparent;
-  }
-}
-
 /* Wysiwig */
-.mce-tinymce {
-  background-color: transparent !important;
-}
 .mce-content-body p {
   color: #9398a0;
   font-size: 14px;
@@ -636,8 +507,8 @@ File: Pages
   border-width: 0px !important;
 }
 .mce-container .mce-menubar {
-  background-color: fade(@white,20%) !important;
-  border: none !important;
+  background-color: #f2f4f7 !important;
+  border: 1px solid #d7dce5 !important;
   padding: 2px;
 }
 .mce-container .mce-menubar .mce-btn button span {
@@ -647,35 +518,31 @@ File: Pages
   text-transform: capitalize;
 }
 .mce-container .mce-menubar .mce-btn button .mce-caret {
-  border-top-color: @white;
-}
-.mce-caret {
-  border-top: 4px solid @white !important;
-}
-.mce-menubar .mce-menubtn:hover, .mce-menubar .mce-menubtn.mce-active, .mce-menubar .mce-menubtn:focus {
-  background-color: transparent !important;
+  border-top-color: #707780;
 }
 .mce-container .mce-menubar .mce-btn button:hover {
-  background-color: fade(@white,20%);
+  background-color: #e8ebf1;
 }
 .mce-container .mce-menubar .mce-btn.mce-active button {
   background-color: #e8ebf1;
 }
 .mce-container .mce-btn {
-  background-color: fade(@white,20%);
+  background-color: #d7dce5;
   background-image: none;
   outline: 0;
   border: 0px;
   border-radius: 0px;
 }
 .mce-container .mce-btn button {
-  color: @white !important;
+  color: @white;
   font-size: 14px;
   font-weight: 400;
   text-shadow: none;
-  padding: 5px 10px;
 }
-
+.mce-container .mce-btn:hover {
+  background-color: #b8c1d1;
+  background-image: none;
+}
 .mce-container .mce-primary {
   background-color: @custom;
   background-image: none;
@@ -694,50 +561,37 @@ File: Pages
   background-image: none;
 }
 .mce-container .mce-toolbar-grp {
-  background-color: fade(@white,20%) !important;
-  border: none !important;
+  background-color: #f2f4f7 !important;
+  border: 1px solid #d7dce5 !important;
   border-top-width: 0px !important;
   padding: 6px;
 }
-
-.mce-container .mce-btn-group .mce-btn:hover, .mce-container .mce-btn-group .mce-btn:focus {
-  background-color: fade(@white,20%) !important;
-  color: @dark;
-}
-.mce-stack-layout-item {
-  body {
-    background-color: transparent !important;
-  }
-}
-
-div.mce-edit-area {
-  background: transparent !important;
-}
-
-.mce-btn.mce-active button, .mce-btn.mce-active:hover button{
-  color: @dark !important;
+.mce-container .mce-edit-area {
+  border: 1px solid #d7dce5 !important;
+  border-width: 0px 1px !important;
 }
 .mce-container .mce-statusbar {
-  background-color: fade(@white,20%) !important;
-  border: none !important;
+  background-color: #f2f4f7 !important;
+  border: 1px solid #d7dce5 !important;
 }
 .mce-container .mce-statusbar .mce-path .mce-path-item {
-  color: @white;
+  color: #707780;
   font-size: 14px;
   font-weight: 400;
 }
 .mce-container .mce-widget {
-  color: @white;
+  color: #9398a0;
   font-size: 14px;
   font-weight: 400;
   border-left: 1px solid transparent;
 }
 .mce-container .mce-btn-group {
-  border: none;
+  border: 1px solid #e9ecf2 !important;
 }
 .mce-container .mce-btn-group .mce-btn {
   box-shadow: none;
   background-image: none;
+  background-color: @white;
   border-width: 0px;
   border-radius: 0px !important;
 }
@@ -753,11 +607,11 @@ div.mce-edit-area {
   font-weight: 300;
 }
 .mce-container .mce-btn-group .mce-btn button .mce-caret {
-  color: @white;
+  color: #707780;
   font-size: 14px;
 }
 .mce-container .mce-ico {
-  color: @white;
+  color: #707780;
   font-size: 14px;
 }
 .mce-container .mce-panel {
@@ -774,7 +628,7 @@ div.mce-edit-area {
   font-size: 14px;
 }
 .mce-container.mce-menu .mce-menu-item .mce-text {
-  color: #707780 !important;
+  color: #707780;
   font-size: 14px;
   font-weight: 400;
   text-transform: capitalize;
@@ -790,7 +644,17 @@ div.mce-edit-area {
 .mce-container.mce-menu .mce-menu-item.mce-selected {
   background-color: @custom;
 }
-
+.mce-container.mce-menu .mce-menu-item:hover .mce-ico,
+.mce-container.mce-menu .mce-menu-item:focus .mce-ico,
+.mce-container.mce-menu .mce-menu-item.mce-selected .mce-ico,
+.mce-container.mce-menu .mce-menu-item:hover .mce-text,
+.mce-container.mce-menu .mce-menu-item:focus .mce-text,
+.mce-container.mce-menu .mce-menu-item.mce-selected .mce-text,
+.mce-container.mce-menu .mce-menu-item:hover .mce-menu-shortcut,
+.mce-container.mce-menu .mce-menu-item:focus .mce-menu-shortcut,
+.mce-container.mce-menu .mce-menu-item.mce-selected .mce-menu-shortcut {
+  color: @white;
+}
 .mce-container.mce-menu .mce-menu-item.mce-disabled .mce-ico,
 .mce-container.mce-menu .mce-menu-item.mce-disabled .mce-text,
 .mce-container.mce-menu .mce-menu-item.mce-disabled .mce-menu-shortcut {
@@ -828,8 +692,6 @@ div.mce-edit-area {
       color: @white !important;
     }
 }
-
-
 
 
 
@@ -895,9 +757,6 @@ div.mce-edit-area {
   .btn-warning:focus,.btn-info:focus,.btn-success:focus,.btn-danger:focus,.btn-default:focus {
     box-shadow: none;
   }
-  h2 {
-    color: @dark;
-  }
 }
 
 
@@ -909,12 +768,12 @@ div.mce-edit-area {
 .morris-hover.morris-default-style {
     border-radius: 5px;
     padding: 10px 12px;
-    background: @light5;
+    background: @dark;
     border: none;
-    color: @dark !important;
+    color: @white !important;
 
     .morris-hover-point {
-      color: @dark !important;
+      color: @lightdark !important;
     }
 }
 /* Morris chart Title */
@@ -978,9 +837,9 @@ div.mce-edit-area {
 /* Flot chart */
 #flotTip {
   padding: 8px 12px;
-  background-color: @light;
+  background-color: @dark;
   z-index: 100;
-  color: @dark;
+  color: @white;
   opacity: 0.9;
   font-size: 13px;
   -webkit-border-radius: 3px;
@@ -993,17 +852,10 @@ div.mce-edit-area {
    height: 20px;
   }
 }
-.legend div:first-of-type {
-    background-color: transparent !important;
-}
 .legendLabel {
     padding-left: 5px !important;
     line-height: 10px;
     padding-right: 10px;
-}
-
-.flot-tick-label {
-  color: @muted !important;
 }
 
 /* Sparkline chart */
@@ -1037,7 +889,7 @@ div.mce-edit-area {
   }
 }
 .ct-grid {
-    stroke: fade(@white,15%);
+    stroke: fade(@dark,15%);
 }
 .ct-chart.simple-pie-chart-chartist {
   .ct-label {
@@ -1086,9 +938,8 @@ div.mce-edit-area {
   min-width: 10px;
   padding: 2px 10px;
   .border-radius(3px);
-  background: @light;
-  color: @dark;
-  font-weight: 600;
+  background: @dark;
+  color: @white;
   text-align: center;
   pointer-events: none;
   z-index: 1;
@@ -1140,7 +991,6 @@ div.mce-edit-area {
     font-size: 60px;
     line-height: 60px;
     height: 60px;
-    color: @light;
     display: inline-block;
     overflow: hidden;
     text-align: center;
@@ -1154,7 +1004,7 @@ div.mce-edit-area {
     padding-top: 5px;
     cursor: default;
     font-size: 16px;
-    color: @light;
+    opacity: 0.7;
   }
 }
 
@@ -1230,7 +1080,7 @@ div.mce-edit-area {
     top: 50%;
     width: 20px;
     i {
-      color: darken(@dark,15%);
+      color: @light5;
     }
   }
   .time-icon {
@@ -1260,7 +1110,7 @@ h3.timeline-title {
   .timeline-desk {
     .arrow {
       border-bottom: 8px solid transparent;
-      border-right: 8px solid @dark !important;
+      border-right: 8px solid @white !important;
       border-top: 8px solid transparent;
       display: block;
       height: 0;
@@ -1282,7 +1132,7 @@ h3.timeline-title {
   .timeline-desk {
     .arrow-alt {
       border-bottom: 8px solid transparent;
-      border-left: 8px solid @dark !important;
+      border-left: 8px solid @white !important;
       border-top: 8px solid transparent;
       display: block;
       height: 0;
@@ -1337,7 +1187,7 @@ h3.timeline-title {
     margin: 0;
   }
   .panel {
-    background: @dark;
+    background: @white;
     display: block;
     margin-bottom: 5px;
     margin-left: 45px;
@@ -1353,7 +1203,7 @@ h3.timeline-title {
     }
   }
   p {
-    color: @lightdark-alt;
+    color: #999999;
     font-size: 14px;
     margin-bottom: 0;
   }
@@ -1390,7 +1240,7 @@ h3.timeline-title {
     -ms-transition: all 0.3s ease-out;
     -o-transition: all 0.3s ease-out;
     transition: all 0.3s ease-out;
-    color: @lightdark-alt;
+    color: #333333;
     font-weight: 600;
     padding: 5px 10px;
     display: inline-block;
@@ -1406,7 +1256,7 @@ h3.timeline-title {
 }
 
 .thumb {
-  background-color: darken(@dark,10%);
+  background-color: @white;
   border-radius: 3px;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
   margin-top: 20px;
@@ -1620,7 +1470,7 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
     font-size: 48px;
     font-family: @font-secondary;
     margin-bottom: 10px;
-    color: @lightdark-alt;
+    color: @dark;
   }
   .plan-duration {
     font-size: 13px;
@@ -1705,7 +1555,6 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
   }
 }
 .kanban-box {
-  border: 2px solid fade(@white,7%);
   .checkbox-wrapper {
     float: left;
 
@@ -1723,7 +1572,7 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
       font-family: @font-primary;
 
       a{
-        color: @light;
+        color: @dark;
       }
     }
     ul {
@@ -1850,7 +1699,7 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
 ============= */
 
 .account-pages {
-  background: url("../images/big/bg.jpg") center;
+  background-color: #4f5661;
   position: absolute;
   height: 100%;
   width: 100%;
@@ -1912,8 +1761,6 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
     }
   }
 }
-
-
 
 /* INBOX */
 .inbox-app-main {
@@ -2002,7 +1849,7 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
   color: @dark;
 
   a {
-    color: fade(@muted,80%);
+    color: @dark;
   }
 
   .menu-segment {
@@ -2025,7 +1872,7 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
       text-transform: uppercase;
       font-weight: 600;
       padding: 10px 0;
-      color: fade(@white,50%);
+      color: #465162;
 
       .icon {
         float: right;
@@ -2108,7 +1955,7 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
   right: 0;
   z-index: 4;
   transition-duration: .3s;
-  background-color: darken(@dark,10%);
+  background-color: @white;
 
   .overlay {
     position: absolute;
@@ -2148,7 +1995,7 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
         .line {
           height: 3px;
           display: block;
-          background: @muted;
+          background: #888;
           margin-bottom: 4px;
           transition-duration: .5s;
           transition-delay: .5s;
@@ -2196,20 +2043,21 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
         right: 0;
         bottom: 0;
         width: 100%;
-        padding-right: 30px;
+        padding: 0;
         margin: 0;
         text-indent: 15px;
         height: 40px;
         z-index: 2;
         outline: none;
-        color: @white;
+        color: #999;
         background: transparent;
-        border: 2px solid fade(@light,50%);
+        border: 2px solid #EFEFEF;
         border-radius: 5px;
         transition-timing-function: cubic-bezier(0.3, 1.5, 0.6, 1);
 
         &:focus {
-          border: 2px solid fade(@light,70%);
+          color: #333;
+          border-color: #d6d6d6;
         }
 
         &:focus ~ .icon {
@@ -2251,7 +2099,6 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
       line-height: 50px;
       cursor: default;
       transition-duration: .3s;
-      color: fade(@muted,60%);
 
       &:hover {
         background: fade(@muted, 15%);
@@ -2346,7 +2193,7 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
 
     li.unread {
       font-weight: 600;
-      color: fade(@muted,95%);
+      color: #555;
     }
 
     li.blue-dot .col-1 .dot {
@@ -2406,7 +2253,7 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
   transform: translateX(200%);
   transition-duration: .5s;
   padding: 20px 30px;
-  background-color: darken(@dark,7%);
+  background: @white;
   box-shadow: 0 0px 77px 0 rgba(0, 0, 0, 0.08), 0 1px 0px 0 rgba(0, 0, 0, 0.02);
 
   .header {
@@ -2427,7 +2274,7 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
 
     .grey {
       margin-left: 10px;
-      color: fade(@white,80%);
+      color: #999;
     }
   }
 
@@ -2436,7 +2283,8 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
 
     li {
       padding: 25px;
-      border: 1px solid fade(@muted,30%);
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      background: #FFF;
       margin: 0 0 30px 0;
       position: relative;
 
@@ -2449,7 +2297,7 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
         .left {
           float: left;
           font-weight: 600;
-          color: fade(@white,40%);
+          color: #888;
           transition-duration: .3s;
 
           .arrow {
@@ -2457,10 +2305,10 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
             position: relative;
             height: 2px;
             width: 20px;
-            background: fade(@white,15%);
+            background: rgba(0, 0, 0, 0.15);
             vertical-align: top;
             margin: 12px 20px 0 15px;
-            border: 0px solid fade(@white,15%);
+            border: 0px solid rgba(0, 0, 0, 0.15);
             transition-duration: .3s;
 
             &:after {
@@ -2510,6 +2358,9 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
         position: absolute;
         bottom: 0;
         right: 0;
+        border: 0px solid #DDDFE1;
+        border-top-width: 1px;
+        border-left-width: 1px;
         padding: 8px 10px;
         transition-duration: .3s;
 
@@ -2595,7 +2446,6 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
 
   #main {
     left: 0;
-    top: 75px;
     box-shadow: none;
   }
 
@@ -2778,10 +2628,9 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
 .profile-pills {
   li{
     a{
-      color: fade(@white,50%) !important;
+      color: fade(@dark,50%) !important;
       padding: 0px 10px;
       line-height: 30px !important;
-      border: 2px solid transparent;
 
       i {
         font-size: 14px;
@@ -2811,7 +2660,7 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
       position: relative;
   }
   .comment-text {
-      border: 1px solid fade(@white,10%);
+      border: 1px solid #e5e5e5;
       border-radius: 2px;
       padding: 7px 12px 8px;
   }
@@ -2820,7 +2669,7 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
       padding-bottom: 2px;
 
     a{
-      color: @white;
+      color: @dark;
       font-weight: bold;
     }
     span {
@@ -2841,7 +2690,7 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
     }
   }
   .comment-footer, .comment-footer a {
-    color: fade(@white, 50%);
+    color: fade(@dark, 50%);
 
     &:hover {
       color: @custom;
@@ -2851,3 +2700,4 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
 .comment>.comment {
   margin-left: 32px !important;
 }
+
