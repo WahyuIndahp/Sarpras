@@ -99,8 +99,8 @@
                                     <thead>
                                         <tr>
                                             <th style="text-align:center; vertical-align: middle;">No</th>
-                                            <th style="text-align:center; vertical-align: middle;">Kode Inventaris</th>
-                                            <th style="text-align:center; vertical-align: middle;">Nama Sarpras</th>
+                                            <th style="text-align:center; vertical-align: middle;">Kode<br>Inventaris</th>
+                                            <th style="text-align:center; vertical-align: middle;">Nama<br>Sarpras</th>
                                             <th style="text-align:center; vertical-align: middle;">QR Code</th>
                                             <th style="text-align:center; vertical-align: middle;">Actions</th>
                                         </tr>

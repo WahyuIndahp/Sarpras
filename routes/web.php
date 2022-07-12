@@ -55,6 +55,8 @@ Route::get('/db', function () {
 //     return view('login');
 // });
 
+Route::get('/dataakun', App\Http\Controllers\RegisterController::class, 'indexakun')->middleware('ceklevel:admin');
+
 Route::resource('/datasarpras', SarpraseController::class)->middleware('ceklevel:admin');
 
 Route::resource('/dataruangsekolah', RuangController::class)->middleware('ceklevel:admin');

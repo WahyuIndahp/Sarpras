@@ -10,11 +10,11 @@
                     <h5><a href="#" style="font-weight:bold; color:rgb(0, 0, 0);" >{{auth()->user()->name}}</a> </h5>
                     @endauth
                     <ul class="list-inline">
-                        <li>
+                        {{-- <li>
                         <button href="#" class="text-custom">
                             <i class="zmdi zmdi-settings"></i>
                         </button>
-                        </li>
+                        </li> --}}
                         <li>
                             <button href="/db" class="text-custom">
                                 <i class="zmdi zmdi-home"></i>

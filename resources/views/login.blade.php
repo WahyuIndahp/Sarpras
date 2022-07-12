@@ -94,10 +94,10 @@
                         </div>
                     </div>
 
-                    <div class="form-group m-t-20 m-b-0">
+                    {{-- <div class="form-group m-t-20 m-b-0">
                         <div class="col-sm-12">
                             <a href="/lupapw" class="text-muted"><i class="fa fa-lock m-r-5"></i> Lupa Password?</a>
-                        </div>
+                        </div> --}}
                     </div>
                     <div class="row">
                         <div class="col-sm-12 m-t-10 m-b-0 text-center">
