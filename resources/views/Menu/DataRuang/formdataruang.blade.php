@@ -104,14 +104,14 @@
 	                                            <div class="form-group">
 	                                                <label class="col-md-2 control-label" style="text-align:left">Nama PJ Ruang</label>
 	                                                <div class="col-md-10">
-	                                                    <input type="text" class="form-control" name="pj_ruang" id="pj_ruang" placeholder="Masukkan nama PJ Ruang">
+	                                                    <input type="text" class="form-control" name="pj_ruang" id="pj_ruang" placeholder="Masukkan nama PJ Ruang" required>
 	                                                </div>
 	                                            </div>
 
 	                                            <div class="form-group">
 	                                                <label class="col-md-2 control-label" style="text-align:left">Nama Ruang</label>
 	                                                <div class="col-md-10">
-	                                                    <input type="text" class="form-control" name="nama_ruang" id="nama_ruang" placeholder="Masukkan nama ruang">
+	                                                    <input type="text" class="form-control" name="nama_ruang" id="nama_ruang" placeholder="Masukkan nama ruang" required>
 	                                                </div>
 	                                            </div>
 

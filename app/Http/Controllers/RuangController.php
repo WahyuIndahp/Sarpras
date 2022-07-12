@@ -37,7 +37,7 @@ class RuangController extends Controller
     public function store(Request $request)
     {
         Ruang::create($request->all());
-        return redirect('/dataruangsekolah')->with('sukses','Berhasil Menambahkan Data');;
+        return redirect('/dataruangsekolah')->with('sukses','Berhasil Menambahkan Data');
     }
 
     /**

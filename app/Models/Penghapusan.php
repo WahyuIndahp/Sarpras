@@ -12,4 +12,9 @@ class Penghapusan extends Model
     protected $guarded = ['id'];
 
     protected $dates = ['tgl_hps'];
+
+    public function kondisis()
+    {
+        return $this->belongsTo(Kondisi::class, 'kondisi_id','id');
+    }
 }

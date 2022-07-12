@@ -113,8 +113,13 @@
                                             <div class="form-group">
                                                 <label class="col-md-8  m-t-5">Sarpras</label>
                                                 <div class="col-md-10">
-                                                    <input type="text" name="nama_sarpras" id="nama_sarpras" class="form-control"
-                                                    value="{{ $data->nama_sarpras }}">
+                                                    <select class="form-control select2" name="sarpras_id" id="sarpras_id">
+                                                        <optgroup selected label="Daftar Sarpras">
+                                                        @foreach($sarprases as $item)
+                                                        <option value="{{$item->id}}" {{old('sarpras_id',$data->sarpras_id) == $item->id ? 'selected' : null}}>{{$item->nama_sarpras}}</option>
+                                                        @endforeach
+                                                        </optgroup>
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div><!-- end col -->

@@ -3,6 +3,15 @@
 
 <head>
     @include('fix.title')
+
+    <style type="text/css">
+        .responsive {
+           width: 100%;
+           max-width: 130px;
+           height: auto;
+        }
+      </style>
+      
 </head>
 
 
@@ -29,13 +38,9 @@
                             </button>
                         </li>
                         <li>
-                            <h4 class="page-title">SISTEM INFORMASI MANAJEMEN SARANA PRASARANA</h4>
+                            <h3 >Selamat anda berhasil login sebagai {{auth()->user()->level}}!</h3>
                         </li>
                     </ul>
-
-                    {{-- <!-- Right(Notification and Searchbox -->
-                    @include('fix.right')
-                    <!-- End Notification bar --> --}}
 
                 </div><!-- end container -->
             </div><!-- end navbar -->
@@ -54,6 +59,36 @@
         <!-- ============================================================== -->
         <div class="content-page">
             <!-- Start content -->
+            <div class="content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-11">
+
+                            <div class="card-box task-detail col-sm-offset-2" >
+                                <div class="row">
+                                    <div class="clearfix">
+                                        <div>
+                                            <h3 style="text-align:center;">SELAMAT DATANG DI HALAMAN DASHBOARD</h3>
+                                        </div>
+                                        <div>
+                                            <h3 class="logo" style="text-align:center;">SDN Kebonsari 3 Malang</h3>
+                                        </div>                        
+                                    </div>
+                                    <hr>
+                                    <div class="portfolioContainer"> 
+                                        <div class="attached-files">
+                                            <div class="files-list">
+                                                <div style="text-align:center;">
+                                                        <img width="250" height="250" src="https://matamaja.com/wp-content/uploads/2021/08/53-2.jpg">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- cardbox -->
+                        </div><!-- end col -->
+                    </div><!-- end row -->  
+                </div>
             <!-- content -->
 
             @include('fix.footer')

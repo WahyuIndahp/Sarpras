@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Rekap;
+use App\Models\Sarprase;
 use Illuminate\Http\Request;
 
 class PerekapanController extends Controller
@@ -14,8 +15,14 @@ class PerekapanController extends Controller
      */
     public function index()
     {
-            $data = Rekap::all();
+            $data = Rekap::with('sarprases')->get();
             return view('Menu/Perencanaan/dataperekapan', compact('data'));
+    }
+
+    public function indexall()
+    {
+            $data = Rekap::with('sarprases')->get();
+            return view('Menu/Perencanaan/lihatperekapan', compact('data'));
     }
 
     /**
@@ -25,7 +32,8 @@ class PerekapanController extends Controller
      */
     public function create()
     {
-        return view('Menu/Perencanaan/formperekapan');
+        $sarprases = Sarprase::all();
+        return view('Menu/Perencanaan/formperekapan', compact('sarprases'));
     }
 
     /**
@@ -60,7 +68,8 @@ class PerekapanController extends Controller
     public function edit($id)
     {
         $data = Rekap::find($id);
-        return view('Menu/Perencanaan/editperekapan', compact('data'));
+        $sarprases = Sarprase::all();
+        return view('Menu/Perencanaan/editperekapan', compact('data','sarprases'));
     }
 
     /**

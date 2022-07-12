@@ -113,9 +113,16 @@
                                                 </div>
 
 	                                            <div class="form-group">
-	                                                <label class="col-md-2 control-label" style="text-align:left">Nama Sarpras</label>
+	                                                <label class="col-md-2 control-label" style="text-align:left">Kode Kondisi</label>
 	                                                <div class="col-md-10">
-	                                                    <input type="text" class="form-control" name="nama_sarpras" id="nama_sarpras" value="{{ $data->nama_sarpras}}">
+                                                        <select class="form-control sarpras2" name="kondisi_id" id="kondisi_id" required>
+                                                            <option>Silahkan pilih kode kondisi</option>
+                                                            <optgroup label="Daftar Sarpras">
+                                                            @foreach ($kondisis as $item)
+                                                            <option value="{{$item->id}}" {{old('kondisi_id',$data->kondisi_id) == $item->id ? 'selected' : null}}>{{$item->kode_kondisi}}</option>
+                                                            @endforeach
+                                                            </optgroup>
+                                                        </select>
 	                                                </div>
 	                                            </div>
 

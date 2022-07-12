@@ -278,8 +278,8 @@ function initscrolls(){
       $('.slimscrollleft').slimScroll({
           height: 'auto',
           position: 'right',
-          size: "5px",
-          color: '#dcdcdc',
+          size: "10px",
+          color: 'black',
           wheelStep: 5
       });
   }

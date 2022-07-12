@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kondisi;
+use App\Models\Sarprase;
 use Illuminate\Http\Request;
 
 class KondisiController extends Controller
@@ -14,8 +15,14 @@ class KondisiController extends Controller
      */
     public function index()
     {
-        $data = Kondisi::all();
+        $data = Kondisi::with('sarprases')->get();
             return view('Menu.Kondisi.datakondisi', compact('data'));
+    }
+
+    public function indexall()
+    {
+        $data = Kondisi::with('sarprases')->get();
+            return view('Menu.Kondisi.lihatkondisi', compact('data'));
     }
 
     /**
@@ -25,7 +32,8 @@ class KondisiController extends Controller
      */
     public function create()
     {
-        return view('Menu.Kondisi.formkondisi');
+        $sarprases = Sarprase::all();
+        return view('Menu.Kondisi.formkondisi', compact('sarprases'));
     }
 
     /**
@@ -65,7 +73,8 @@ class KondisiController extends Controller
     public function edit($id)
     {
         $data = Kondisi::find($id);
-        return view('Menu.Kondisi.editkondisi', compact('data'));
+        $sarprases = Sarprase::all();
+        return view('Menu.Kondisi.editkondisi', compact('data','sarprases'));
     }
 
     /**

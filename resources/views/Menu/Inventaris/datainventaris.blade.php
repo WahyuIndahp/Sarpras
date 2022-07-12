@@ -90,10 +90,6 @@
                                     <a href="/datainventaris/create" type="button" class="btn btn-custom"><i
                                             class="fa fa-plus"> </i> Tambah
                                         Data</a>
-                                    <a href="" type="button"
-                                        class="btn btn-inverse btn-rounded w-md waves-effect btn-sm m-b-5 pull-right">
-                                        <i class="fa fa-download"> </i> Download
-                                        Data</a>
                                 </div>
                                 <table id="datatable-responsive"
                                     class="table table-striped table-bordered dt-responsive nowrap" cellspacing="3"
@@ -102,9 +98,9 @@
                                         <tr>
                                             <th style="text-align:center; vertical-align: middle;">No</th>
                                             <th style="text-align:center; vertical-align: middle;">Tanggal</th>
+                                            <th style="text-align:center; vertical-align: middle;">Kode Inventaris</th>
                                             <th style="text-align:center; vertical-align: middle;">Asal Sarpras</th>
                                             <th style="text-align:center; vertical-align: middle;">Nama Sarpras</th>
-                                            <th style="text-align:center; vertical-align: middle;">Jumlah<br>Sarpras</th>
                                             <th style="text-align:center; vertical-align: middle;">Actions</th>
                                         </tr>
                                     </thead>
@@ -114,11 +110,11 @@
                                         @endphp
                                         @foreach ($data as $inventory)
                                         <tr>
-                                            <td scope="$inventory">{{$no++}}</td>
+                                            <td scope="inventory">{{$no++}}</td>
                                             <td>{{$inventory->tgl_terima->format('d-m-Y')}}</td>
+                                            <td>{{$inventory->kode_inventaris}}</td>
                                             <td>{{$inventory->asal_sarpras}}</td>
-                                            <td>{{$inventory->nama_sarpras}}</td>
-                                            <td style="text-align:right">{{$inventory->jumlah}}</td>
+                                            <td>{{$inventory->sarprases->nama_sarpras}}</td>
                                             <td class="actions" style="text-align:center">
                                                 <a href="/datainventaris/{{ $inventory->id }}/edit"
                                                     class="btn btn-icon waves-effect waves-light btn-success btn-xs m-b-5">

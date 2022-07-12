@@ -12,4 +12,9 @@ class Pengadaan extends Model
     protected $guarded = ['id'];
 
     protected $dates = ['tgl_beli'];
+
+    public function sarprases()
+    {
+        return $this->belongsTo(Sarprase::class, 'sarpras_id','id');
+    }
 }

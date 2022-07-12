@@ -120,10 +120,17 @@
 	                                            </div>
 
 	                                            <div class="form-group">
-	                                                <label class="col-md-2 control-label" style="text-align:left">Nama Sarpras</label>
-	                                                <div class="col-md-10">
-	                                                    <input type="text" class="form-control" name="nama_sarpras" id="nama_sarpras" value="{{ $data->nama_sarpras }}">
-	                                                </div>
+	                                                <label class="col-md-2 control-label" style="text-align:left">Nama Ruang</label>
+	                                                <div class="col-sm-10">
+                                                        <select class="form-control sarpras2" name="ruang_id" id="ruang_id" required>
+                                                            <option>Silahkan pilih ruangan</option>
+                                                            <optgroup label="Ruang Sekolah">
+                                                            @foreach ($sarprases as $item)
+                                                            <option value="{{$item->id}}" {{old('sarpras_id',$data->sarpras_id) == $item->id ? 'selected' : null}}>{{$item->nama_sarpras}}</option>
+                                                            @endforeach
+                                                            </optgroup>
+                                                        </select>
+                                                    </div>
 	                                            </div>
 
 	                                            <div class="form-group">
@@ -143,7 +150,7 @@
                                                 <div class="form-group">
                                                 <label class="col-md-2 control-label" style="text-align:left">Foto Penerimaan</label>
                                                 <div class="col-md-10">
-                                                    <input class="form-control" type="file"  name="foto_terima" id="formFile">
+                                                    <input class="form-control" type="file"  name="foto_terima" id="formFile" src="{{ asset('fotoinventory/'.$data->foto_terima)}}">
                                                 </div>
 	                                            </div>
 

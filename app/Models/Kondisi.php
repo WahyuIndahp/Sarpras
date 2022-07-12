@@ -12,4 +12,9 @@ class Kondisi extends Model
     protected $guarded = ['id'];
 
     protected $dates = ['tgl_cek'];
+
+    public function sarprases()
+    {
+        return $this->belongsTo(Sarprase::class, 'sarpras_id','id');
+    }
 }

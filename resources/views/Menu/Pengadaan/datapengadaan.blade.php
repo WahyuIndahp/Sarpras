@@ -90,7 +90,7 @@
                                     <a href="/datapengadaan/create" type="button" class="btn btn-custom"><i
                                             class="fa fa-plus"> </i> Tambah
                                         Data</a>
-                                    <a href="" type="button"
+                                    <a href="javascript:window.print()"
                                         class="btn btn-inverse btn-rounded w-md waves-effect btn-sm m-b-5 pull-right">
                                         <i class="fa fa-download"> </i> Download
                                         Data</a>
@@ -106,6 +106,7 @@
                                             <th style="text-align:center; vertical-align: middle;">Jumlah<br>Sarpras</th>
                                             <th style="text-align:center; vertical-align: middle;">Harga<br>Sarpras</th>
                                             <th style="text-align:center; vertical-align: middle;">Total</th>
+                                            <th style="text-align:center; vertical-align: middle;">Foto Bukti</th>
                                             <th style="text-align:center; vertical-align: middle;">Actions</th>
                                         </tr>
                                     </thead>
@@ -116,11 +117,16 @@
                                         @foreach ($data as $pengadaan)
                                         <tr>
                                             <td scope="$pengadaan">{{$no++}}</td>
-                                            <td>{{ $pengadaan->nama_sarpras }}</td>
+                                            <td>{{ $pengadaan->sarprases->nama_sarpras }}</td>
                                             <td>{{ $pengadaan->tgl_beli->format('d-m-Y')}}</td>
                                             <td style="text-align:right">{{$pengadaan->jumlah }}</td>
-                                            <td style="text-align:right">{{ $pengadaan->hargabeli }}</td>
-                                            <td style="text-align:right; font-weight:bold;">{{ $pengadaan->harga_total }}</td>
+                                            <td style="text-align:right">Rp {{ number_format ($pengadaan->hargabeli, 2) }}</td>
+                                            <td style="text-align:right; font-weight:bold;">Rp {{number_format( $pengadaan->harga_total, 2 )}}</td>
+                                            <td>
+                                                <a href="{{ asset('fotopengadaan/'.$pengadaan->foto_terima)}}" class="image-popup" title="foto_terima">
+                                                    <img src="{{ asset('fotopengadaan/'.$pengadaan->foto_terima)}}" style="width: 50px;" class="thumb-img" alt="work-thumbnail">
+                                                </a>
+                                            </td>
                                             <td class="actions" style="text-align:center">
                                                 <a href="/datapengadaan/{{ $pengadaan->id}}/edit"
                                                     class="btn btn-icon waves-effect waves-light btn-success btn-xs m-b-5">
@@ -230,6 +236,18 @@
         });
     });
     TableManageButtons.init();
+
+    $(window).load(function(){
+                        var $container = $('.portfolioContainer');
+                        $container.isotope({
+                            filter: '*',
+                            animationOptions: {
+                                duration: 750,
+                                easing: 'linear',
+                                queue: false
+                            }
+                        });
+                    });
     </script>
 
 </body>

@@ -96,14 +96,20 @@
                         <div class="col-sm-12">
                             <div class="card-box">
                                 <div class="row">
-                                    <form class="form-horizontal" role="form" method="post" action="/datapengadaan">
+                                    <form class="form-horizontal" role="form" method="post" action="/datapengadaan" name="autoSumForm">
                                         @csrf
                                         <div class="col-lg-6 p-20 col-sm-offset-1">
                                             <div class="form-group">
                                                 <label class="col-md-8  m-t-15">Nama Sarpras</label>
                                                 <div class="col-md-9">
-                                                    <input type="text" class="form-control" name="nama_sarpras" id="nama_sarpras"
-                                                        placeholder="Masukkan nama sarpras" >
+                                                    <select class="form-control sarpras2" name="sarpras_id" id="sarpras_id" required>
+                                                        <option>Silahkan pilih sarpras</option>
+                                                        <optgroup label="Daftar Sarpras">
+                                                        @foreach ($sarprases as $item)
+                                                        <option value="{{$item->id}}">{{$item->nama_sarpras}}</option>
+                                                        @endforeach
+                                                        </optgroup>
+                                                    </select>
                                                 </div>
                                             </div>
                                             
@@ -111,11 +117,17 @@
 			                                	<label class="col-md-8  m-t-15">Tanggal Pengadaan</label>
 			                            		<div class="col-sm-9">
 			                        				<div class="input-group">
-														<input type="text" class="form-control"name="tgl_beli" placeholder="mm-dd-yyyy" id="datepicker-autoclose">
+														<input type="text" class="form-control"name="tgl_beli" placeholder="mm-dd-yyyy" id="datepicker-autoclose" required>
 												    		<span class="input-group-addon bg-primary b-0 text-white"><i class="ti-calendar"></i></span>
 													</div><!-- input-group -->
 			                                	</div>
 			                            	</div>
+                                            <div class="form-group">
+                                                <label for="formFile" class="col-md-8  m-t-15" style="text-align:left">Foto Sarpras</label>
+                                                <div class="col-md-9">
+                                                    <input class="form-control" type="file" name="foto_terima" id="formFile" required>
+                                                </div>
+                                            </div>
                                         </div><!-- end col -->
 
                                         <div class="col-lg-5 p-20 ">
@@ -123,7 +135,7 @@
 												<label class="col-md-8 m-t-15">Jumlah Sarpras</label>
 												<div class="col-sm-10 ">
                                                 <input type="text" name="jumlah" id="jumlah" class="form-control"
-                                                        placeholder="Masukkan jumlah sarpras">
+                                                    onFocus="startCalc();" onBlur="stopCalc();" placeholder="Masukkan jumlah sarpras" required>
 					    						</div>
 											</div>
 
@@ -131,7 +143,7 @@
                                                 <label class="col-md-8 m-t-15">Harga</label>
                                                 <div class="col-sm-10">
                                                     <input type="text" class="form-control" name="hargabeli" id="hargabeli"
-                                                        placeholder="Masukkan harga">
+                                                    onFocus="startCalc();" onBlur="stopCalc();" placeholder="Masukkan harga" required>
                                                 </div>
                                             </div>
 
@@ -139,7 +151,7 @@
                                                 <label class="col-md-8 m-t-5">Total Belanja</label>
                                                 <div class="col-sm-10">
                                                     <input type="text" name="harga_total" id="harga_total" class="form-control" max=5
-                                                        placeholder="Masukkan total harga">
+                                                    value="0" readonly>
                                                 </div>
                                             </div>
                                             
@@ -301,6 +313,25 @@
             });
     </script>
 
+    <script>
+
+    function startCalc(){
+    
+    interval = setInterval("calc()",1);}
+    
+    function calc(){
+    
+    one = document.autoSumForm.hargabeli.value;
+    
+    two = document.autoSumForm.jumlah.value;
+    
+    document.autoSumForm.harga_total.value = (one * 1) * (two * 1);}
+    
+    function stopCalc(){
+    
+    clearInterval(interval);}
+    
+    </script>
 </body>
 
 </html>

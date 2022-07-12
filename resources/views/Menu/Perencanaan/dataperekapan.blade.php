@@ -90,7 +90,7 @@
                                     <a href="{{url('/dataperekapan/create')}}" type="button" class="btn btn-custom"><i class="fa fa-plus">
                                         </i> Tambah
                                         Data</a>
-                                    <a href="" type="button"
+                                    <a href="javascript:window.print()"
                                         class="btn btn-inverse btn-rounded w-md waves-effect btn-sm m-b-5 pull-right">
                                         <i class="fa fa-download"> </i> Download
                                         Data</a>
@@ -123,7 +123,7 @@
                                             <td scope="rekap">{{ $no++ }}</td>
                                             <td>{{ $rekap->thn_ajr}}</td>
                                             <td>{{ $rekap->semester}}</td>
-                                            <td>{{ $rekap->nama_sarpras}}</td>
+                                            <td>{{ $rekap->sarprases->nama_sarpras}}</td>
                                             <td>{{ $rekap->total}}</td>
                                             <td style="text-align:center;font-weight:bold;">{{ $rekap->status}}</td>
                                             <td class="actions" style="text-align:center">
@@ -230,6 +230,18 @@
         });
     });
     TableManageButtons.init();
+
+    $(window).load(function(){
+                        var $container = $('.portfolioContainer');
+                        $container.isotope({
+                            filter: '*',
+                            animationOptions: {
+                                duration: 750,
+                                easing: 'linear',
+                                queue: false
+                            }
+                        });
+                    });
     </script>
 
 </body>

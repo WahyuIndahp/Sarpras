@@ -1,3 +1,3 @@
 <footer class="footer text-right">
-    2022 © SDN Kebonsari 3.
+    2022 © SDN Kebonsari 3 Malang
 </footer>

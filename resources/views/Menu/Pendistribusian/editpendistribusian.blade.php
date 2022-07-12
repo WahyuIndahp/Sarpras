@@ -125,10 +125,12 @@
 	                                            <div class="form-group">
 	                                                <label class="col-md-2 control-label" style="text-align:left">Nama Ruang</label>
 	                                                <div class="col-sm-10">
-                                                        <select class="form-control" name="ruang_id" id="ruang_id" required>
+                                                        <select class="form-control select2" name="ruang_id" id="ruang_id">
+                                                            <optgroup label="Ruang Sekolah">
                                                             @foreach ($ruangs as $item)
                                                             <option value="{{$item->id}}" {{old('ruang_id',$data->ruang_id) == $item->id ? 'selected' : null}}>{{$item->nama_ruang}}</option>
                                                             @endforeach
+                                                            </optgroup>
                                                         </select>
                                                     </div>
 	                                            </div>
@@ -171,7 +173,7 @@
                                                 <div class="form-group m-t-10">
                                                     <div class="col-sm-offset-8">
                                                     &nbsp;&nbsp;
-                                                    <a href="/datainventaris" type="submit"
+                                                    <a href="/datapendistribusian" type="submit"
                                                         class="btn btn-inverse btn-trans waves-effect waves-light"><i
                                                             class="fa fa-times" aria-hidden="true"></i> Batal</a>
                                                     <!-- <a href="/datainventaris" type="submit"
@@ -247,6 +249,8 @@
     <script src="/assets/plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
     <script src="/assets/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
     <script src="/assets/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="assets/plugins/jquery-quicksearch/jquery.quicksearch.js"></script>
+    <script src="/assets/plugins/select2/dist/js/select2.min.js" type="text/javascript"></script>
 
     <!-- file uploads js -->
     <script src="/assets/plugins/fileuploads/js/dropify.min.js"></script>

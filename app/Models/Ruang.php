@@ -10,14 +10,4 @@ class Ruang extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
-
-    // public function plans()
-    // {
-    //     return $this->hasMany(Plan::class);
-    // }
-
-    // public function distribusis()
-    // {
-    //     return $this->hasMany(Distribusi::class);
-    // }
 }

@@ -70,7 +70,7 @@
                             </button>
                         </li>
                         <li>
-                            <h4 class="page-title">FORM INVENTARIS</h4>
+                            <h4 class="page-title">FORM INVENTARIS SARPRAS</h4>
                         </li>
                     </ul>
 
@@ -105,7 +105,7 @@
 	                                                <label class="col-md-2 control-label" style="text-align:left">Tanggal</label>
 	                                                <div class="col-md-10">
                                                         <div class="input-group">
-                                                            <input type="text" class="form-control"name="tgl_terima" placeholder="mm-dd-yyyy" id="datepicker-autoclose">
+                                                            <input type="text" class="form-control"name="tgl_terima" placeholder="mm-dd-yyyy" id="datepicker-autoclose" required>
                                                                 <span class="input-group-addon bg-primary b-0 text-white"><i class="ti-calendar"></i></span>
                                                         </div>
 	                                                </div>
@@ -114,35 +114,42 @@
 	                                            <div class="form-group">
 	                                                <label class="col-md-2 control-label" style="text-align:left">Asal Sarpras</label>
 	                                                <div class="col-md-10">
-	                                                    <input type="text" class="form-control" name="asal_sarpras" id="asal_sarpras" placeholder="Masukkan asal sarpras">
+	                                                    <input type="text" class="form-control" name="asal_sarpras" id="asal_sarpras" placeholder="Masukkan asal sarpras" required>
 	                                                </div>
 	                                            </div>
 
 	                                            <div class="form-group">
 	                                                <label class="col-md-2 control-label" style="text-align:left">Nama Sarpras</label>
-	                                                <div class="col-md-10">
-	                                                    <input type="text" class="form-control" name="nama_sarpras" id="nama_sarpras" placeholder="Masukkan nama sarpras">
-	                                                </div>
+	                                                <div class="col-sm-10">
+                                                        <select class="form-control sarpras2" name="sarpras_id" id="sarpras_id" required>
+                                                            <option>Silahkan pilih sarpras</option>
+                                                            <optgroup label="Daftar Sarpras">
+                                                            @foreach ($sarprases as $item)
+                                                            <option value="{{$item->id}}">{{$item->nama_sarpras}}</option>
+                                                            @endforeach
+                                                            </optgroup>
+                                                        </select>
+                                                    </div>
 	                                            </div>
 
 	                                            <div class="form-group">
 	                                                <label class="col-md-2 control-label" style="text-align:left">Jumlah Sarpras</label>
 	                                                <div class="col-md-10">
-	                                                    <input type="text" class="form-control" name="jumlah" id="jumlah" placeholder="masukkan jumlah">
+	                                                    <input type="text" class="form-control" name="jumlah" id="jumlah" placeholder="masukkan jumlah" required>
 	                                                </div>
 	                                            </div>
 
                                                 <div class="form-group">
 	                                                <label class="col-md-2 control-label" style="text-align:left">Kegunaan</label>
 	                                                <div class="col-md-10">
-	                                                    <input type="text" class="form-control" name="kegunaan" id="kegunaan" placeholder="Masukkan kegunaan">
+	                                                    <input type="text" class="form-control" name="kegunaan" id="kegunaan" placeholder="Masukkan kegunaan" required>
 	                                                </div>
 	                                            </div>
 
                                                 <div class="form-group">
                                                 <label class="col-md-2 control-label" style="text-align:left">Foto Penerimaan</label>
                                                 <div class="col-md-10">
-                                                    <input class="form-control" type="file"  name="foto_terima" id="formFile">
+                                                    <input class="form-control" type="file"  name="foto_terima" id="formFile" required>
                                                 </div>
 	                                            </div>
 

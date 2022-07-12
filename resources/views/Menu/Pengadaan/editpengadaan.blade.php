@@ -96,15 +96,21 @@
                         <div class="col-sm-12">
                             <div class="card-box">
                                 <div class="row">
-                                    <form class="form-horizontal" role="form" method="POST" action="/datapengadaan/{{ $data->id }}" enctype="multipart/form-data">
+                                    <form class="form-horizontal" role="form" method="POST" action="/datapengadaan/{{ $data->id }}" enctype="multipart/form-data" name="autoSumForm">
                                         @csrf
                                         @method('PUT')
                                         <div class="col-lg-6 p-20 col-sm-offset-1">
                                             <div class="form-group">
                                                 <label class="col-md-8  m-t-15">Nama Sarpras</label>
                                                 <div class="col-md-9">
-                                                    <input type="text" class="form-control" name="nama_sarpras" id="nama_sarpras"
-                                                        value="{{ $data->nama_sarpras }}" >
+                                                    <select class="form-control sarpras2" name="sarpras_id" id="sarpras_id" required>
+                                                        <option>Silahkan pilih sarpras</option>
+                                                        <optgroup label="Daftar Sarpras">
+                                                        @foreach ($sarprases as $item)
+                                                        <option value="{{$item->id}}" {{old('sarpras_id',$data->sarpras_id) == $item->id ? 'selected' : null}}>{{$item->nama_sarpras}}</option>
+                                                        @endforeach
+                                                        </optgroup>
+                                                    </select>
                                                 </div>
                                             </div>
                                             
@@ -117,13 +123,19 @@
 													</div><!-- input-group -->
 			                                	</div>
 			                            	</div>
+                                            <div class="form-group">
+                                                <label for="formFile" class="col-md-8  m-t-15" style="text-align:left">Foto Sarpras</label>
+                                                <div class="col-md-9">
+                                                    <input class="form-control" type="file" name="foto_terima" id="formFile" value="{{ $data->foto_terima}}">
+                                                </div>
+                                            </div>
                                         </div><!-- end col -->
 
                                         <div class="col-lg-5 p-20 ">
                                             <div class="form-group">
 												<label class="col-md-8 m-t-15">Jumlah Sarpras</label>
 												<div class="col-sm-10 ">
-                                                <input type="text" name="jumlah" id="jumlah" class="form-control"
+                                                <input type="text" name="jumlah" id="jumlah" class="form-control" onFocus="startCalc();" onBlur="stopCalc();"
                                                 value="{{ $data->jumlah }}">
 					    						</div>
 											</div>
@@ -131,7 +143,7 @@
                                             <div class="form-group">
                                                 <label class="col-md-8 m-t-15">Harga</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" class="form-control" name="hargabeli" id="hargabeli"
+                                                    <input type="text" class="form-control" name="hargabeli" id="hargabeli" onFocus="startCalc();" onBlur="stopCalc();"
                                                     value="{{ $data->hargabeli }}">
                                                 </div>
                                             </div>
@@ -140,7 +152,7 @@
                                                 <label class="col-md-8 m-t-5">Total Belanja</label>
                                                 <div class="col-sm-10">
                                                     <input type="text" name="harga_total" id="harga_total" class="form-control" max=5
-                                                    value="{{ $data->harga_total }}">
+                                                    value="{{ $data->harga_total }}" readonly>
                                                 </div>
                                             </div>
                                             
@@ -300,6 +312,26 @@
                 buttondown_class: "btn btn-primary",
                 buttonup_class: "btn btn-primary"
             });
+    </script>
+
+<script>
+
+    function startCalc(){
+    
+    interval = setInterval("calc()",1);}
+    
+    function calc(){
+    
+    one = document.autoSumForm.hargabeli.value;
+    
+    two = document.autoSumForm.jumlah.value;
+    
+    document.autoSumForm.harga_total.value = (one * 1) * (two * 1);}
+    
+    function stopCalc(){
+    
+    clearInterval(interval);}
+    
     </script>
 
 </body>

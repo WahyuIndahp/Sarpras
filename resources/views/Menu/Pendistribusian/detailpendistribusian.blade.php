@@ -10,23 +10,23 @@
     @include('fix.title')
 
     <!-- DataTables -->
-    <link href="assets/plugins/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
-    <link href="assets/plugins/datatables/buttons.bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="assets/plugins/datatables/fixedHeader.bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="assets/plugins/datatables/responsive.bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="assets/plugins/datatables/scroller.bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/plugins/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/plugins/datatables/buttons.bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/plugins/datatables/fixedHeader.bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/plugins/datatables/responsive.bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/plugins/datatables/scroller.bootstrap.min.css" rel="stylesheet" type="text/css" />
 
     <!--venobox lightbox-->
-    <link rel="stylesheet" href="assets/plugins/magnific-popup/dist/magnific-popup.css"/>
+    <link rel="stylesheet" href="/assets/plugins/magnific-popup/dist/magnific-popup.css"/>
 
     <!-- App CSS -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="assets/css/core.css" rel="stylesheet" type="text/css" />
-    <link href="assets/css/components.css" rel="stylesheet" type="text/css" />
-    <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
-    <link href="assets/css/pages.css" rel="stylesheet" type="text/css" />
-    <link href="assets/css/menu.css" rel="stylesheet" type="text/css" />
-    <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/core.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/components.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/icons.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/pages.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/menu.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/responsive.css" rel="stylesheet" type="text/css" />
 
     <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -35,7 +35,7 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
 
-    <script src="assets/js/modernizr.min.js"></script>
+    <script src="/assets/js/modernizr.min.js"></script>
 </head>
 
 
@@ -60,10 +60,6 @@
                             <h4 class="page-title">DETAIL PENDISTRIBUSIAN SARPRAS</h4>
                         </li>
                     </ul>
-
-                    <!-- Right(Notification and Searchbox -->
-                    @include('fix.right')
-                    <!-- End Notification bar -->
                 </div><!-- end container -->
             </div><!-- end navbar -->
         </div>
@@ -97,8 +93,8 @@
                                         <div>
                                             <h3 style="text-align:center;">Halaman Pendistribusian</h3>
                                         </div>
-                                        <div class="col-sm-offset-4">
-                                            <h3 class="logo">SDN Kebonsari 3 Malang</h3>
+                                        <div>
+                                            <h3 class="logo" style="text-align:center;">SDN Kebonsari 3 Malang</h3>
                                         </div>                        
                                     </div>
                                     <hr>
@@ -127,7 +123,7 @@
                                 </div><!-- end row -->
                                 <hr>
                                     <div class="row">
-                                        <div class="list-inline task-dates m-b-0 m-t-20 col-sm-offset-2">
+                                        <div class="list-inline task-dates col-sm-offset-2">
                                             <div class="table-responsive">
                                                 <table class="table">
                                                     <thead>
@@ -151,13 +147,13 @@
                                     <div class="attached-files m-t-30 col-sm-offset-2">
                                         <h5 class="font-600 m-b-5">Bukti Foto Penerimaan Sarpras </h5>
                                         <div class="files-list">
-                                            <div class="file-box col-sm-offset-2">
-                                                    <img width="330px" height="200px" src="{{ asset('fotodistribusi/'.$data->foto_bukti)}}">
+                                            <div class="file-box" style="text-align: center">
+                                                    <img width="325px" height="200px" src="{{ asset('fotodistribusi/'.$data->foto_bukti)}}">
                                             </div>
                                         </div>
                                         <div class="files-list">
-                                            <div class="file-box col-sm-offset-2">
-                                                <img width="330px" height="200px" src="{{ asset('fotodistribusi/'.$data->foto_sarpras)}}">
+                                            <div class="file-box" style="text-align: center">
+                                                <img width="325px" height="200px" src="{{ asset('fotodistribusi/'.$data->foto_sarpras)}}">
                                             </div>
                                         </div>
                                     </div>
@@ -192,43 +188,43 @@
                 </script>
 
                 <!-- jQuery  -->
-                <script src="assets/js/jquery.min.js"></script>
-                <script src="assets/js/bootstrap.min.js"></script>
-                <script src="assets/js/detect.js"></script>
-                <script src="assets/js/fastclick.js"></script>
-                <script src="assets/js/jquery.slimscroll.js"></script>
-                <script src="assets/js/jquery.blockUI.js"></script>
-                <script src="assets/js/waves.js"></script>
-                <script src="assets/js/jquery.nicescroll.js"></script>
-                <script src="assets/js/jquery.scrollTo.min.js"></script>
+                <script src="/assets/js/jquery.min.js"></script>
+                <script src="/assets/js/bootstrap.min.js"></script>
+                <script src="/assets/js/detect.js"></script>
+                <script src="/assets/js/fastclick.js"></script>
+                <script src="/assets/js/jquery.slimscroll.js"></script>
+                <script src="/assets/js/jquery.blockUI.js"></script>
+                <script src="/assets/js/waves.js"></script>
+                <script src="/assets/js/jquery.nicescroll.js"></script>
+                <script src="/assets/js/jquery.scrollTo.min.js"></script>
 
                 <!-- Datatables-->
-                <script src="assets/plugins/datatables/jquery.dataTables.min.js"></script>
-                <script src="assets/plugins/datatables/dataTables.bootstrap.js"></script>
-                <script src="assets/plugins/datatables/dataTables.buttons.min.js"></script>
-                <script src="assets/plugins/datatables/buttons.bootstrap.min.js"></script>
-                <script src="assets/plugins/datatables/jszip.min.js"></script>
-                <script src="assets/plugins/datatables/pdfmake.min.js"></script>
-                <script src="assets/plugins/datatables/vfs_fonts.js"></script>
-                <script src="assets/plugins/datatables/buttons.html5.min.js"></script>
-                <script src="assets/plugins/datatables/buttons.print.min.js"></script>
-                <script src="assets/plugins/datatables/dataTables.fixedHeader.min.js"></script>
-                <script src="assets/plugins/datatables/dataTables.keyTable.min.js"></script>
-                <script src="assets/plugins/datatables/dataTables.responsive.min.js"></script>
-                <script src="assets/plugins/datatables/responsive.bootstrap.min.js"></script>
-                <script src="assets/plugins/datatables/dataTables.scroller.min.js"></script>
+                <script src="/assets/plugins/datatables/jquery.dataTables.min.js"></script>
+                <script src="/assets/plugins/datatables/dataTables.bootstrap.js"></script>
+                <script src="/assets/plugins/datatables/dataTables.buttons.min.js"></script>
+                <script src="/assets/plugins/datatables/buttons.bootstrap.min.js"></script>
+                <script src="/assets/plugins/datatables/jszip.min.js"></script>
+                <script src="/assets/plugins/datatables/pdfmake.min.js"></script>
+                <script src="/assets/plugins/datatables/vfs_fonts.js"></script>
+                <script src="/assets/plugins/datatables/buttons.html5.min.js"></script>
+                <script src="/assets/plugins/datatables/buttons.print.min.js"></script>
+                <script src="/assets/plugins/datatables/dataTables.fixedHeader.min.js"></script>
+                <script src="/assets/plugins/datatables/dataTables.keyTable.min.js"></script>
+                <script src="/assets/plugins/datatables/dataTables.responsive.min.js"></script>
+                <script src="/assets/plugins/datatables/responsive.bootstrap.min.js"></script>
+                <script src="/assets/plugins/datatables/dataTables.scroller.min.js"></script>
 
                 <!-- Datatable init js -->
-                <script src="assets/pages/datatables.init.js"></script>
+                <script src="/assets/pages/datatables.init.js"></script>
                 <!-- Bootstrap tagsinput -->
-                <script src="assets/plugins/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"></script>
+                <script src="/assets/plugins/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"></script>
 
                 <!-- Magnific popup -->
-                <script type="text/javascript" src="assets/plugins/magnific-popup/dist/jquery.magnific-popup.min.js">
+                <script type="text/javascript" src="/assets/plugins/magnific-popup/dist/jquery.magnific-popup.min.js">
                 </script>
                 <!-- App js -->
-                <script src="assets/js/jquery.core.js"></script>
-                <script src="assets/js/jquery.app.js"></script>
+                <script src="/assets/js/jquery.core.js"></script>
+                <script src="/assets/js/jquery.app.js"></script>
 
                 <script type="text/javascript">
                     $(document).ready(function() {
@@ -238,7 +234,7 @@
                         });
                         $('#datatable-responsive').DataTable();
                         $('#datatable-scroller').DataTable({
-                            ajax: "assets/plugins/datatables/json/scroller-demo.json",
+                            ajax: "/assets/plugins/datatables/json/scroller-demo.json",
                             deferRender: true,
                             scrollY: 380,
                             scrollCollapse: true,

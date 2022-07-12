@@ -27,7 +27,7 @@ class DistribusiController extends Controller
     public function create()
     {
         $ruangs = Ruang::all();
-            return view('Menu.Pendistribusian.formpendistribusian', compact('ruangs'));
+        return view('Menu.Pendistribusian.formpendistribusian', compact('ruangs'));
     }
 
     /**

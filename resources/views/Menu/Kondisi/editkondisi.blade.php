@@ -102,6 +102,13 @@
                         					<form class="form-horizontal" role="form" method="POST" action="/datakondisi/{{ $data->id }}" enctype="multipart/form-data">
                                                 @csrf
                                                 @method('PUT')
+                                                <div class="form-group">
+	                                                <label class="col-md-2 control-label" style="text-align:left">Kode Kondisi</label>
+	                                                <div class="col-md-10">
+	                                                    <input type="text" class="form-control" name="kode_kondisi" id="kode_kondisi" value="{{ $data->kode_kondisi }}">
+	                                                </div>
+	                                            </div>
+
                                                 <div class="form-group m-t-10">
                                                     <label class="col-md-2  control-label" style="text-align:left">Tanggal Pengecekan</label>
                                                     <div class="col-md-10">
@@ -115,7 +122,25 @@
 	                                            <div class="form-group">
 	                                                <label class="col-md-2 control-label" style="text-align:left">Nama Sarpras</label>
 	                                                <div class="col-md-10">
-	                                                    <input type="text" class="form-control" name="nama_sarpras" id="nama_sarpras" value="{{ $data->nama_sarpras}}">
+	                                                    <select class="form-control sarpras2" name="sarpras_id" id="sarpras_id" required>
+                                                            <option>Silahkan pilih sarpras</option>
+                                                            <optgroup label="Daftar Sarpras">
+                                                            @foreach ($sarprases as $item)
+                                                            <option value="{{$item->id}}" {{old('sarpras_id',$data->sarpras_id) == $item->id ? 'selected' : null}}>{{$item->nama_sarpras}}</option>
+                                                            @endforeach
+                                                            </optgroup>
+                                                        </select>
+	                                                </div>
+	                                            </div>
+
+	                                            <div class="form-group">
+	                                                <label class="col-md-2 control-label" style="text-align:left">Status Kondisi</label>
+	                                                <div class="col-md-10">
+	                                                     <select class="form-control" name="status" id="status" required>
+                                                        <option selected>{{ $data->status }}</option>
+                                                        <option value="Tidak Ada Kerusakan">Tidak Ada Kerusakan</option>
+                                                            <option value="Proses Pembenahan">Proses Pembenahan</option>
+                                                    </select>
 	                                                </div>
 	                                            </div>
 
@@ -143,7 +168,7 @@
                                                 <div class="form-group m-t-10">
                                                     <div class="col-sm-offset-8">
                                                     &nbsp;&nbsp;
-                                                    <a href="/datainventaris" type="submit"
+                                                    <a href="/datakondisi" type="submit"
                                                         class="btn btn-inverse btn-trans waves-effect waves-light"><i
                                                             class="fa fa-times" aria-hidden="true"></i> Batal</a>
                                                     <!-- <a href="/datainventaris" type="submit"

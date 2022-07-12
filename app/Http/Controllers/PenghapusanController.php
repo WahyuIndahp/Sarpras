@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Penghapusan;
+use App\Models\Kondisi;
 use Illuminate\Http\Request;
 
 class PenghapusanController extends Controller
@@ -14,8 +15,14 @@ class PenghapusanController extends Controller
      */
     public function index()
     {
-        $data = Penghapusan::all();
+        $data = Penghapusan::with('kondisis')->get();
         return view('Menu.Kondisi.datapenghapusan', compact('data'));
+    }
+
+    public function indexall()
+    {
+        $data = Penghapusan::with('kondisis')->get();
+        return view('Menu.Kondisi.lihatpenghapusan', compact('data'));
     }
 
     /**
@@ -25,7 +32,8 @@ class PenghapusanController extends Controller
      */
     public function create()
     {
-        return view('Menu.Kondisi.formpenghapusan');
+        $kondisis = Kondisi::all();
+        return view('Menu.Kondisi.formpenghapusan',compact('kondisis'));
     }
 
     /**
@@ -65,7 +73,8 @@ class PenghapusanController extends Controller
     public function edit($id)
     {
         $data = Penghapusan::find($id);
-        return view('Menu.Kondisi.editpenghapusan', compact('data'));
+        $kondisis = Kondisi::all();
+        return view('Menu.Kondisi.editpenghapusan', compact('data','kondisis'));
     }
 
     /**

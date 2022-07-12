@@ -104,17 +104,20 @@
                                                 <label class="col-md-8 m-t-5">Tahun Ajaran</label>
                                                 <div class="col-md-10">
                                                     <!-- <span class="font-13 text-muted">Masukkan tahun ajaran</span> -->
-                                                    <input type="text" placeholder="Masukkan tahun ajar" data-mask="9999" class="form-control" id="thn_ajr" name="thn_ajr">
+                                                    <input type="text" placeholder="Masukkan tahun ajar" data-mask="9999" class="form-control" id="thn_ajr" name="thn_ajr" required>
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
                                                 <label class="col-md-8 m-t-5">Nama Ruang</label>
                                                 <div class="col-sm-10">
-                                                    <select class="form-control" name="ruang_id" id="ruang_id">
-                                                        @foreach($ruangs as $data)
-                                                        <option value="{{$data->id}}">{{$data->nama_ruang}}</option>
-                                                        @endforeach
+                                                    <select class="form-control select2" name="ruang_id" id="ruang_id" required>
+                                                        <option>Silahkan pilih ruangan</option>
+                                                        <optgroup selected label="Ruang Sekolah">
+                                                            @foreach($ruangs as $data)
+                                                            <option value="{{$data->id}}">{{$data->nama_ruang}}</option>
+                                                            @endforeach
+                                                        </optgroup>
                                                     </select>
                                                 </div>
                                             </div>
@@ -134,8 +137,14 @@
                                             <div class="form-group">
                                                 <label class="col-md-8  m-t-5">Sarpras</label>
                                                 <div class="col-md-10">
-                                                    <input type="text" name="nama_sarpras" id="nama_sarpras" class="form-control"
-                                                        placeholder="Masukkan nama sarpras">
+                                                    <select class="form-control sarpras2" name="sarpras_id" id="sarpras_id" required>
+                                                        <option>Silahkan pilih sarpras</option>
+                                                        <optgroup label="Daftar Sarpras">
+                                                        @foreach ($sarprases as $item)
+                                                        <option value="{{$item->id}}">{{$item->nama_sarpras}}</option>
+                                                        @endforeach
+                                                        </optgroup>
+                                                    </select>
                                                 </div>
                                             </div>
 
@@ -143,7 +152,7 @@
 												<label class="col-md-8 m-t-5">Jumlah Sarpras</label>
 												    <div class="col-sm-10 ">
                                                     <input type="text" name="jumlah" id="jumlah" class="form-control"
-                                                        placeholder="Masukkan jumlah sarpras">
+                                                        placeholder="Masukkan jumlah sarpras" required>
                                                 </div>
 											</div>
 
@@ -229,6 +238,9 @@
     <script src="/assets/plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
     <script src="/assets/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
     <script src="/assets/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="assets/plugins/multiselect/js/jquery.multi-select.js"></script>
+    <script type="text/javascript" src="assets/plugins/jquery-quicksearch/jquery.quicksearch.js"></script>
+    <script src="assets/plugins/select2/dist/js/select2.min.js" type="text/javascript"></script>
 
     <!-- App js -->
     <script src="/assets/js/jquery.core.js"></script>

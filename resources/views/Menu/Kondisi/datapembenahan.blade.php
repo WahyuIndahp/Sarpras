@@ -87,9 +87,9 @@
                         <div class="col-sm-12">
                             <div class="card-box table-responsive">
                                 <div class="m-b-30">
-                                    <a href="/formpembenahan"  type="button" class="btn btn-custom"><i class="fa fa-plus"> </i> Tambah
+                                    <a href="/datapembenahan/create"  type="button" class="btn btn-custom"><i class="fa fa-plus"> </i> Tambah
                                         Data</a>
-                                    <a href="" type="button" class="btn btn-inverse btn-rounded w-md waves-effect btn-sm m-b-5 pull-right"> <i class="fa fa-download"> </i> Download
+                                    <a href="javascript:window.print()" class="btn btn-inverse btn-rounded w-md waves-effect btn-sm m-b-5 pull-right"> <i class="fa fa-download"> </i> Download
                                         Data</a>
                                 </div>
                                 <table id="datatable-responsive"
@@ -99,6 +99,8 @@
                                         <tr>
                                             <th style="text-align:center">No</th>
                                             <th style="text-align:center">Tanggal</th>
+                                            <th style="text-align:center">Kode Kondisi</th>
+                                            <th  style="text-align:center">Kode Sarpras</th>
                                             <th  style="text-align:center">Nama Sarpras</th>
                                             <th  style="text-align:center">Detail Kerusakan</th>
                                             <th  style="text-align:center">Status</th>
@@ -114,12 +116,14 @@
                                         <tr>
                                             <td scope="$pembenahan">{{$no++}}</td>
                                             <td>{{$pembenahan->tgl_servis->format('d-m-Y')}}</td>
-                                            <td>{{$pembenahan->nama_sarpras}}</td>
+                                            <td>{{$pembenahan->kondisis->kode_kondisi}}</td>
+                                            <td>{{$pembenahan->kondisis->sarprases->kode_sarpras}}</td>
+                                            <td>{{$pembenahan->kondisis->sarprases->nama_sarpras}}</td>
                                             <td>{{$pembenahan->detail_rusak}}</td>
                                             <td>{{$pembenahan->status}}</td>
                                             <td>
                                                 <a href="{{ asset('fotopembenahan/'.$pembenahan->foto_kondisi)}}" class="image-popup" title="foto_kondisi">
-                                                    <img src="{{ asset('fotopembenahan/'.$pembenahan->foto_kondisi)}}" style="width: 150px;" class="thumb-img" alt="work-thumbnail">
+                                                    <img src="{{ asset('fotopembenahan/'.$pembenahan->foto_kondisi)}}" style="width: 50px;" class="thumb-img" alt="work-thumbnail">
                                                 </a>
                                             </td>
                                             <td class="actions" style="text-align:center">
@@ -222,6 +226,18 @@
         });
     });
     TableManageButtons.init();
+
+    $(window).load(function(){
+                        var $container = $('.portfolioContainer');
+                        $container.isotope({
+                            filter: '*',
+                            animationOptions: {
+                                duration: 750,
+                                easing: 'linear',
+                                queue: false
+                            }
+                        });
+                    });
     </script>
 
 </body>

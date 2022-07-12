@@ -80,7 +80,7 @@
                             </button>
                         </li>
                         <li>
-                            <h4 class="page-title">FORM KONDISI</h4>
+                            <h4 class="page-title">FORM PENDISTRIBUSIAN SARPRAS</h4>
                         </li>
                     </ul>
 
@@ -115,7 +115,7 @@
                                                     <label class="col-md-2  control-label" style="text-align:left">Tanggal Distribusi</label>
                                                     <div class="col-md-10">
                                                         <div class="input-group">
-                                                            <input type="text" class="form-control"name="tgl_terima" placeholder="mm-dd-yyyy" id="datepicker-autoclose">
+                                                            <input type="text" class="form-control"name="tgl_terima" placeholder="mm-dd-yyyy" id="datepicker-autoclose" required>
                                                                 <span class="input-group-addon bg-primary b-0 text-white"><i class="ti-calendar"></i></span>
                                                         </div><!-- input-group -->
                                                     </div>
@@ -124,10 +124,13 @@
 	                                            <div class="form-group">
 	                                                <label class="col-md-2 control-label" style="text-align:left">Nama Ruang</label>
 	                                                <div class="col-sm-10">
-                                                        <select class="form-control" name="ruang_id" id="ruang_id" required>
+                                                        <select class="form-control sarpras2" name="ruang_id" id="ruang_id" required>
+                                                            <option>Silahkan pilih ruangan</option>
+                                                            <optgroup label="Ruang Sekolah">
                                                             @foreach ($ruangs as $item)
                                                             <option value="{{$item->id}}">{{$item->nama_ruang}}</option>
                                                             @endforeach
+                                                            </optgroup>
                                                         </select>
                                                     </div>
 	                                            </div>
@@ -135,7 +138,7 @@
 	                                            <div class="form-group">
                                                     <label class="col-md-2 control-label" style="text-align:left">Semester</label>
                                                     <div class="col-sm-10">
-                                                        <select class="form-control form-control-solplaceholder-no-fix" name="semester" id="semester">
+                                                        <select class="form-control form-control-solplaceholder-no-fix" name="semester" id="semester" required>
                                                                 <option value="Ganjil">Ganjil</option>
                                                                 <option value="Genap">Genap</option>
                                                             </optgroup>
@@ -148,28 +151,28 @@
 	                                                <div class="col-md-10 ">
 	                                                    {{-- <input id="deskripsi" type="hidden" name="deskripsi">
                                                         <trix-editor input="deskripsi"></trix-editor> --}}
-                                                        <textarea class="form-control" name="deskripsi" rows="5"></textarea>
+                                                        <textarea class="form-control" name="deskripsi" rows="5" placeholder="Isikan sesuai sarpras yang diterima" required></textarea>
 	                                                </div>
 	                                            </div>
 
                                                 <div class="form-group">
                                                     <label for="formFile" class="col-md-2 control-label" style="text-align:left">Foto Penerimaan</label>
                                                     <div class="col-md-10">
-                                                        <input class="form-control" type="file" name="foto_bukti" id="formFile">
+                                                        <input class="form-control" type="file" name="foto_bukti" id="formFile" required>
                                                     </div>
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label for="formFile" class="col-md-2 control-label" style="text-align:left">Foto Sarpras</label>
                                                     <div class="col-md-10">
-                                                        <input class="form-control" type="file" name="foto_sarpras" id="formFile">
+                                                        <input class="form-control" type="file" name="foto_sarpras" id="formFile" required>
                                                     </div>
                                                 </div>
 
                                                 <div class="form-group m-t-10">
                                                     <div class="col-sm-offset-8">
                                                     &nbsp;&nbsp;
-                                                    <a href="/datainventaris" type="submit"
+                                                    <a href="/datapendistribusian" type="submit"
                                                         class="btn btn-inverse btn-trans waves-effect waves-light"><i
                                                             class="fa fa-times" aria-hidden="true"></i> Batal</a>
                                                     <!-- <a href="/datainventaris" type="submit"

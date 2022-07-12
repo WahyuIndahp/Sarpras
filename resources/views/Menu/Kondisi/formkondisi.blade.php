@@ -101,11 +101,17 @@
                         				<div class="col-lg-10 col-sm-offset-1">
                         					<form class="form-horizontal" role="form" method="POST" action="/datakondisi" enctype="multipart/form-data">
                                                 @csrf
+                                                <div class="form-group">
+	                                                <label class="col-md-2 control-label" style="text-align:left">Kode Kondisi</label>
+	                                                <div class="col-md-10">
+	                                                    <input type="text" class="form-control" name="kode_kondisi" id="kode_kondisi" placeholder="Masukkan kode pinjam (PJM0000)" required> 
+	                                                </div>
+	                                            </div>
                                                 <div class="form-group m-t-10">
                                                     <label class="col-md-2  control-label" style="text-align:left">Tanggal Pengecekan</label>
                                                     <div class="col-md-10">
                                                         <div class="input-group">
-                                                            <input type="text" class="form-control"name="tgl_cek" placeholder="mm-dd-yyyy" id="datepicker-autoclose">
+                                                            <input type="text" class="form-control"name="tgl_cek" placeholder="mm-dd-yyyy" id="datepicker-autoclose" required>
                                                                 <span class="input-group-addon bg-primary b-0 text-white"><i class="ti-calendar"></i></span>
                                                         </div><!-- input-group -->
                                                     </div>
@@ -114,35 +120,54 @@
 	                                            <div class="form-group">
 	                                                <label class="col-md-2 control-label" style="text-align:left">Nama Sarpras</label>
 	                                                <div class="col-md-10">
-	                                                    <input type="text" class="form-control" name="nama_sarpras" id="nama_sarpras" placeholder="Masukkan nama sarpras">
+                                                        <select class="form-control sarpras2" name="sarpras_id" id="sarpras_id" required>
+                                                            <option>Silahkan pilih sarpras</option>
+                                                            <optgroup label="Daftar Sarpras">
+                                                            @foreach ($sarprases as $item)
+                                                            <option value="{{$item->id}}">{{$item->nama_sarpras}}</option>
+                                                            @endforeach
+                                                            </optgroup>
+                                                        </select>
+	                                                </div>
+	                                            </div>
+
+                                                <div class="form-group">
+	                                                <label class="col-md-2 control-label" style="text-align:left">Status</label>
+	                                                <div class="col-md-10">
+	                                                    <select class="form-control form-control-solplaceholder-no-fix" name="status" id="status" required>
+                                                            <option value="Tidak Ada Kerusakan">Tidak Ada Kerusakan</option>
+                                                            <option value="Proses Pembenahan">Proses Pembenahan</option>
+                                                            <option value="Tidak Layak Pakai">Tidak Layak PakaiS</option>
+                                                        </optgroup>
+                                                    </select>
 	                                                </div>
 	                                            </div>
 
 	                                            <div class="form-group">
 	                                                <label class="col-md-2 control-label" style="text-align:left">Kegunaan</label>
 	                                                <div class="col-md-10">
-	                                                    <input type="text" class="form-control" name="kegunaan" id="kegunaan" placeholder="Masukkan kegunaan sarpras">
+	                                                    <input type="text" class="form-control" name="kegunaan" id="kegunaan" placeholder="Masukkan kegunaan sarpras" required>
 	                                                </div>
 	                                            </div>
 
 	                                            <div class="form-group">
 	                                                <label class="col-md-2 control-label" style="text-align:left">Detail Kondisi</label>
 	                                                <div class="col-md-10">
-	                                                    <input type="text" class="form-control" name="detail_kondisi" id="detail_kondisi" placeholder="Masukkan detail kondisi sarpras">
+	                                                    <input type="text" class="form-control" name="detail_kondisi" id="detail_kondisi" placeholder="Masukkan detail kondisi sarpras" required>
 	                                                </div>
 	                                            </div>
 
                                                 <div class="form-group">
                                                     <label for="formFile" class="col-md-2 control-label" style="text-align:left">Foto Kondisi</label>
                                                     <div class="col-md-10">
-                                                        <input class="form-control" type="file" name="foto_kondisi" id="formFile">
+                                                        <input class="form-control" type="file" name="foto_kondisi" id="formFile" required>
                                                     </div>
                                                 </div>
 
                                                 <div class="form-group m-t-10">
                                                     <div class="col-sm-offset-8">
                                                     &nbsp;&nbsp;
-                                                    <a href="/datainventaris" type="submit"
+                                                    <a href="/datakondisi" type="submit"
                                                         class="btn btn-inverse btn-trans waves-effect waves-light"><i
                                                             class="fa fa-times" aria-hidden="true"></i> Batal</a>
                                                     <!-- <a href="/datainventaris" type="submit"

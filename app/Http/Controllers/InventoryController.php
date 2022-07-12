@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Inventory;
+use App\Models\Sarprase;
 use Illuminate\Http\Request;
 
 class InventoryController extends Controller
@@ -18,6 +19,12 @@ class InventoryController extends Controller
         return view('Menu.Inventaris.datainventaris', compact('data'));
     }
 
+    public function indexall()
+    {
+        $data = Inventory::all();
+        return view('Menu.Inventaris.lihatinventaris', compact('data'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -25,7 +32,8 @@ class InventoryController extends Controller
      */
     public function create()
     {
-        return view('Menu.Inventaris.forminventaris');
+        $sarprases = Sarprase::all();
+        return view('Menu.Inventaris.forminventaris', compact('sarprases'));
     }
 
     /**
@@ -54,7 +62,8 @@ class InventoryController extends Controller
     public function show($id)
     {
         $data = Inventory::find($id);
-        return view('Menu.Inventaris.detailinventaris', compact('data'));
+        $sarprases = Sarprase::all();
+        return view('Menu.Inventaris.detailinventaris', compact('data','sarprases'));
     }
 
     /**
@@ -66,7 +75,8 @@ class InventoryController extends Controller
     public function edit($id)
     {
         $data = Inventory::find($id);
-        return view('Menu.Inventaris.editinventaris', compact('data'));
+        $sarprases = Sarprase::all();
+        return view('Menu.Inventaris.editinventaris', compact('data','sarprases'));
     }
 
     /**

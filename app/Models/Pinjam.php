@@ -11,13 +11,15 @@ class Pinjam extends Model
 
     protected $guarded = ['id'];
 
-    public function user()
+    protected $dates = ['tgl_pinjam'];
+
+    public function users()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id','id' );
     }
 
-    public function kembalis()
+    public function sarprases()
     {
-        return $this->hasOne(Kembali::class);
+        return $this->belongsTo(Sarprase::class, 'sarpras_id','id');
     }
 }

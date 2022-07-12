@@ -12,4 +12,9 @@ class Inventory extends Model
     protected $guarded = ['id'];
 
     protected $dates = ['tgl_terima'];
+    
+    public function sarprases()
+    {
+        return $this->belongsTo(Sarprase::class, 'sarpras_id','id');
+    }
 }

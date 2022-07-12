@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pengadaan;
+use App\Models\Sarprase;
 use Illuminate\Http\Request;
 
 class PengadaanController extends Controller
@@ -14,8 +15,14 @@ class PengadaanController extends Controller
      */
     public function index()
     {
-        $data = Pengadaan::all();
+        $data = Pengadaan::with('sarprases')->get();
             return view('Menu.Pengadaan.datapengadaan', compact('data'));
+    }
+
+    public function indexall()
+    {
+        $data = Pengadaan::with('sarprases')->get();
+            return view('Menu.Pengadaan.lihatpengadaan', compact('data'));
     }
 
     /**
@@ -25,7 +32,8 @@ class PengadaanController extends Controller
      */
     public function create()
     {
-        return view('Menu.Pengadaan.formpengadaan');
+        $sarprases = Sarprase::all();
+        return view('Menu.Pengadaan.formpengadaan',compact('sarprases'));
     }
 
     /**
@@ -37,6 +45,11 @@ class PengadaanController extends Controller
     public function store(Request $request)
     {
         Pengadaan::create($request->all());
+        if($request->hasFile('foto_terima')){
+            $request->file('foto_terima')->move('fotopengadaan/', $request->file('foto_terima')->getClientOriginalName());
+            $data->foto_terima = $request->file('foto_terima')->getClientOriginalName();
+            $data->save();
+        }
         return redirect('/datapengadaan')->with('sukses','Berhasil Menambahkan Data');
     }
 
@@ -60,7 +73,8 @@ class PengadaanController extends Controller
     public function edit($id)
     {
         $data = Pengadaan::find($id);
-        return view('Menu.Pengadaan.editpengadaan', compact('data'));
+        $sarprases = Sarprase::all();
+        return view('Menu.Pengadaan.editpengadaan', compact('data','sarprases'));
     }
 
     /**
@@ -74,6 +88,12 @@ class PengadaanController extends Controller
     {
         $data = Pengadaan::find($id);
         $data->update($request->all());
+
+        if($request->hasFile('foto_terima')){
+            $request->file('foto_terima')->move('fotopengadaan/', $request->file('foto_terima')->getClientOriginalName());
+            $data->foto_terima = $request->file('foto_terima')->getClientOriginalName();
+            $data->save();
+        }
 
         return redirect('/datapengadaan')->with('sukses','Berhasil Mengubah Data');
     }

@@ -94,9 +94,9 @@
                         <div class="col-sm-14">
                             <select class="form-control form-control-solplaceholder-no-fix" name="level" id="level" required>
                             <optgroup label="Level User">
-                                <option value="Koordinator">Koordinator</option>
-                                <option value="Pj Ruang">Pj Ruang</option>
-                                <option value="Staff">Staff</option>
+                                <option value="admin">admin</option>
+                                <option value="pjruang">pjruang</option>
+                                <option value="staff">staff</option>
                             </optgroup>
                             </select>
                         </div>

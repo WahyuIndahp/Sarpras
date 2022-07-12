@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Sarprase;
 use App\Models\Plan;
 use App\Models\Ruang;
 use Illuminate\Http\Request;
@@ -15,7 +16,7 @@ class PlanController extends Controller
      */
     public function index()
     {
-        $data = Plan::with('ruangs')->get();
+        $data = Plan::with('ruangs','sarprases')->get();
             return view('Menu.Perencanaan.dataperencanaan', compact('data'));
     }
 
@@ -26,8 +27,9 @@ class PlanController extends Controller
      */
     public function create()
     {
+        $sarprases = Sarprase::all();
         $ruangs = Ruang::all();
-        return view('Menu.Perencanaan.formperencanaan', compact('ruangs'));
+        return view('Menu.Perencanaan.formperencanaan', compact('ruangs','sarprases'));
     }
 
     /**
@@ -63,7 +65,8 @@ class PlanController extends Controller
     {
         $data = Plan::find($id);
         $ruangs = Ruang::all();
-        return view('Menu.Perencanaan.editperencanaan', compact('data','ruangs'));
+        $sarprases = Sarprase::all();
+        return view('Menu.Perencanaan.editperencanaan', compact('data','ruangs','sarprases'));
     }
 
     /**

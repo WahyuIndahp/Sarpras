@@ -105,15 +105,21 @@
                                                 <label class="col-md-8  m-t-5 ">Tahun Ajaran</label>
                                                 <div class="col-md-10">
                                                     <!-- <span class="font-13 text-muted">Masukkan tahun ajaran</span> -->
-                                                    <input type="text" name="thn_ajr" id="thn_ajr" placeholder="" data-mask="9999" class="form-control">
+                                                    <input type="text" name="thn_ajr" id="thn_ajr" placeholder="" data-mask="9999" class="form-control" required>
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
                                                 <label class="col-md-8  m-t-5">Sarpras</label>
                                                 <div class="col-md-10">
-                                                    <input type="text" name="nama_sarpras" id="nama_sarpras" class="form-control"
-                                                        placeholder="Masukkan nama sarpras">
+                                                    <select class="form-control sarpras2" name="sarpras_id" id="sarpras_id" required>
+                                                        <option>Silahkan pilih sarpras</option>
+                                                        <optgroup label="Daftar Sarpras">
+                                                        @foreach ($sarprases as $item)
+                                                        <option value="{{$item->id}}">{{$item->nama_sarpras}}</option>
+                                                        @endforeach
+                                                        </optgroup>
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div><!-- end col -->
@@ -122,7 +128,7 @@
                                             <div class="form-group">
                                                 <label class="col-md-8 m-t-15">Semester</label>
                                                 <div class="col-sm-10">
-                                                    <select class="form-control form-control-solplaceholder-no-fix" name="semester" id="semester">
+                                                    <select class="form-control form-control-solplaceholder-no-fix" name="semester" id="semester" required>
                                                             <option value="Ganjil">Ganjil</option>
                                                             <option value="Genap">Genap</option>
                                                         </optgroup>
@@ -134,14 +140,14 @@
 												<label class="col-md-8 m-t-0">Total Sarpras</label>
 												    <div class="col-sm-10 ">
                                                     <input type="text" name="total" id="total" class="form-control"
-                                                        placeholder="Masukkan total sarpras">
+                                                        placeholder="Masukkan total sarpras" required>
                                                 </div>
 											</div>
 
                                             <div class="form-group">
                                                 <label class="col-md-12 m-t-15">Status</label>
                                                 <div class="col-sm-10">
-                                                    <select class="form-control form-control-solplaceholder-no-fix" name="status" id="status">
+                                                    <select class="form-control form-control-solplaceholder-no-fix" name="status" id="status" required>
                                                             <option value="Belum Terealisasi">Belum Terealisasi</option>
                                                             <option value="Sudah Terealisasi">Sudah Terealisasi</option>
                                                         </optgroup>

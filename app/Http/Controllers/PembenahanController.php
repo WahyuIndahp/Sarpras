@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pembenahan;
+use App\Models\Kondisi;
 use Illuminate\Http\Request;
 
 class PembenahanController extends Controller
@@ -14,8 +15,14 @@ class PembenahanController extends Controller
      */
     public function index()
     {
-        $data = Pembenahan::all();
+        $data = Pembenahan::with('kondisis')->get();
         return view('Menu.Kondisi.datapembenahan', compact('data'));
+    }
+
+    public function indexall()
+    {
+        $data = Pembenahan::with('kondisis')->get();
+        return view('Menu.Kondisi.lihatpembenahan', compact('data'));
     }
 
     /**
@@ -25,7 +32,8 @@ class PembenahanController extends Controller
      */
     public function create()
     {
-        return view('Menu.Kondisi.formpembenahan');
+        $kondisis = Kondisi::all();
+        return view('Menu.Kondisi.formpembenahan',compact('kondisis'));
     }
 
     /**
@@ -65,7 +73,8 @@ class PembenahanController extends Controller
     public function edit($id)
     {
         $data = Pembenahan::find($id);
-        return view('Menu.Kondisi.editpembenahan', compact('data'));
+        $kondisis = Kondisi::all();
+        return view('Menu.Kondisi.editpembenahan', compact('data','kondisis'));
     }
 
     /**

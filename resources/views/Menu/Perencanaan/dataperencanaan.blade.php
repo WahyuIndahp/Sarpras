@@ -89,7 +89,7 @@
                                 <div class="m-b-30">
                                     <a href="{{url('/dataperencanaan/create')}}"  type="button" class="btn btn-custom"><i class="fa fa-plus"> </i> Tambah
                                         Data</a>
-                                    <a href="" type="button" class="btn btn-inverse btn-rounded w-md waves-effect btn-sm m-b-5 pull-right"> <i class="fa fa-download"> </i> Download
+                                    <a href="javascript:window.print()" class="btn btn-inverse btn-rounded w-md waves-effect btn-sm m-b-5 pull-right"> <i class="fa fa-download"> </i> Download
                                         Data</a>
                                 </div>
                                 <table id="datatable-responsive"
@@ -118,7 +118,7 @@
                                             <td>{{ $plan->ruangs->nama_ruang}}</td>
                                             <td>{{ $plan->thn_ajr}}</td>
                                             <td>{{ $plan->semester}}</td>
-                                            <td>{{ $plan->nama_sarpras}}</td>
+                                            <td>{{ $plan->sarprases->nama_sarpras}}</td>
                                             <td style="text-align:right">{{ $plan->jumlah}}</td>
                                             <td class="actions" style="text-align:center">
                                                 <a href="{{url('/dataperencanaan/'.$plan->id.'/edit')}}" class="btn btn-icon waves-effect waves-light btn-success btn-xs m-b-5"> <i class="fa fa-pencil-square-o"></i> Edit </a>
@@ -220,6 +220,18 @@
         });
     });
     TableManageButtons.init();
+
+    $(window).load(function(){
+                        var $container = $('.portfolioContainer');
+                        $container.isotope({
+                            filter: '*',
+                            animationOptions: {
+                                duration: 750,
+                                easing: 'linear',
+                                queue: false
+                            }
+                        });
+                    });
     </script>
 
 </body>

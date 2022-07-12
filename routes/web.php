@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RuangController;
+use App\Http\Controllers\SarpraseController;
 use App\Http\Controllers\PlanController;
 use App\Http\Controllers\PerekapanController;
 use App\Http\Controllers\PengadaanController;
@@ -13,6 +14,10 @@ use App\Http\Controllers\PembenahanController;
 use App\Http\Controllers\PenghapusanController;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\DistribusiController;
+use App\Http\Controllers\PermintaanController;
+use App\Http\Controllers\PinjamController;
+use App\Http\Controllers\ReturnController;
+use App\Http\Controllers\QrcodeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -50,140 +55,50 @@ Route::get('/db', function () {
 //     return view('login');
 // });
 
-Route::resource('/dataruangsekolah', RuangController::class);
+Route::resource('/datasarpras', SarpraseController::class)->middleware('ceklevel:admin');
 
-// Route::get('/formdataruang', function () {
-//     return view('Menu.DataRuang.formdataruang');
-// });
+Route::resource('/dataruangsekolah', RuangController::class)->middleware('ceklevel:admin');
 
-// Route::get('/dataruangkelas', function () {
-//     return view('Menu.dataruang');
-// });
+Route::resource('/dataperencanaan', PlanController::class)->middleware('ceklevel:admin,pjruang');
 
-// Route::get('/editdataruang', function () {
-//     return view('Menu.editdataruang');
-// });
+Route::resource('/dataperekapan', PerekapanController::class)->middleware('ceklevel:admin');
+Route::get('/lihatperekapan', [App\Http\Controllers\PerekapanController::class, 'indexall'])->middleware('ceklevel:staff,pjruang');
 
-//========================================//
-Route::get('/dataakun', function () {
-    return view('Koordinator.dataakun');
-});
-//========================================//
+Route::resource('/datapengadaan', PengadaanController::class)->middleware('ceklevel:admin');
 
-Route::resource('/dataperencanaan', PlanController::class);
+Route::get('/lihatpengadaan', [App\Http\Controllers\PengadaanController::class, 'indexall'])->middleware('ceklevel:staff,pjruang');
 
-// Route::get('/dataperencanaan', function () {
-//     return view('Menu.Perencanaan.dataperencanaan');
-// });
+Route::resource('/datapendistribusian', DistribusiController::class)->middleware('ceklevel:admin,pjruang');
 
-// Route::get('/formperencanaan', function () {
-//     return view('Menu.Perencanaan.formperencanaan');
-// });
+Route::resource('/datainventaris', InventoryController::class)->middleware('ceklevel:admin');
+Route::resource('/dataqrcode', QrcodeController::class)->middleware('ceklevel:admin');
+Route::get('/lihatinventaris', [App\Http\Controllers\InventoryController::class, 'indexall'])->middleware('ceklevel:staff');
 
-Route::resource('/dataperekapan', PerekapanController::class);
+Route::resource('/datapermintaan', PermintaanController::class)->middleware('ceklevel:admin,pjruang');
 
-// Route::get('/dataperekapan', function () {
-//     return view('Koordinator.dataperekapan');
-// });
+Route::resource('/datapeminjaman', PinjamController::class)->middleware('ceklevel:admin,staff');
 
-// Route::get('/formperekapan', function () {
-//     return view('Menu.Perencanaan.formperekapan');
-// });
+Route::resource('/datareturn', ReturnController::class)->middleware('ceklevel:admin,staff');
 
-Route::resource('/datapengadaan', PengadaanController::class);
+Route::resource('/datakondisi', KondisiController::class)->middleware('ceklevel:admin');
+Route::get('/lihatkondisi', [App\Http\Controllers\KondisiController::class, 'indexall'])->middleware('ceklevel:staff');
 
-// Route::get('/datapengadaan', function () {
-//     return view('Koordinator.datapengadaan');
-// });
+Route::resource('/datapembenahan', PembenahanController::class)->middleware('ceklevel:admin');
+Route::get('/lihatpembenahan', [App\Http\Controllers\PembenahanController::class, 'indexall'])->middleware('ceklevel:staff');
 
-// Route::get('/formpengadaan', function () {
-//     return view('Menu.Pengadaan.formpengadaan');
-// });
-
-Route::resource('/datapendistribusian', DistribusiController::class);
-
-// Route::get('/datapendistribusian', function () {
-//     return view('Menu.Pendistribusian.datapendistribusian');
-// });
-
-// Route::get('/formpendistribusian', function () {
-//     return view('Menu.Pendistribusian.formpendistribusian');
-// });
-
-// Route::get('/detailpendistribusian', function () {
-//     return view('Menu.Pendistribusian.detailpendistribusian');
-// });
-
-Route::resource('/datainventaris', InventoryController::class);
-
-// Route::get('/datainventaris', function () {
-//     return view('Menu.Inventaris.datainventaris');
-// });
-
-// Route::get('/forminventaris', function () {
-//     return view('Menu.Inventaris.forminventaris');
-// });
-
-// Route::get('/detailinventaris', function () {
-//     return view('Menu.Inventaris.detailinventaris');
-// });
-
-Route::get('/datapeminjaman', function () {
-    return view('Menu.Peminjaman.datapeminjaman');
-});
-
-// Route::get('/formpeminjaman', function () {
-//     return view('Menu.Peminjaman.formpeminjaman');
-// });
-
-Route::get('/datapengembalian', function () {
-    return view('Menu.Peminjaman.datapengembalian');
-});
-
-// Route::get('/formpengembalian', function () {
-//     return view('Menu.Peminjaman.formpengembalian');
-// });
-
-Route::resource('/datakondisi', KondisiController::class);
-
-// Route::get('/datakondisi', function () {
-//     return view('Menu.Kondisi.datakondisi');
-// });
-
-// Route::get('/formkondisi', function () {
-//     return view('Menu.Kondisi.formkondisi');
-// });
-
-Route::resource('/datapembenahan', PembenahanController::class);
-
-// Route::get('/datapembenahan', function () {
-//     return view('Menu.Kondisi.datapembenahan');
-// });
-
-// Route::get('/formpembenahan', function () {
-//     return view('Menu.Kondisi.formpembenahan');
-// });
-
-Route::resource('/datapenghapusan', PenghapusanController::class);
-
-// Route::get('/datapenghapusan', function () {
-//     return view('Menu.Kondisi.datapenghapusan');
-// });
-
-// Route::get('/formpenghapusan', function () {
-//     return view('Menu.Kondisi.formpenghapusan');
-// });
+Route::resource('/datapenghapusan', PenghapusanController::class)->middleware('ceklevel:admin');
+Route::get('/lihatpenghapusan', [App\Http\Controllers\PenghapusanController::class, 'indexall'])->middleware('ceklevel:staff');
 
 //administrator
-
-Route::get('/editadmtr', function () {
-    return view('Koordinator.editadministrator');
+Route::get('/dataakun', function () {
+    return view('admin.dataakun');
 });
 
 Route::get('/formuser', function () {
-    return view('Koordinator.formuser');
+    return view('admin.formuser');
 });
 
 Route::get('/coba', function () {
     return view('Menu.coba');
 });
+
