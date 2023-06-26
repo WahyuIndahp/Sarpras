@@ -16,9 +16,12 @@
                         </button>
                         </li> --}}
                         <li>
-                            <button href="/db" class="text-custom">
-                                <i class="zmdi zmdi-home"></i>
-                            </button>
+                            <form  action="/db">
+                                <button class="text-custom">
+                                    <i class="zmdi zmdi-home"></i>
+                                </button>
+                            </form>
+                            
                         </li>
         
                         <li>
@@ -38,6 +41,9 @@
         <div id="sidebar-menu">
             <ul>
                 @if(Auth::user()->level == "admin")
+                <li >
+                    <a href="/datapengguna" class="waves-effect"><i class="fa fa-pencil-square-o" aria-hidden="true"></i><span> Data User</span> </a>
+                <li >
                 <li>
                     <a href="/dataruangsekolah" class="waves-effect"><i class="fa fa-institution" aria-hidden="true"></i> <span> Ruang Sekolah </span> </a>
                 </li>
